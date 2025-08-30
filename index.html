@@ -201,54 +201,56 @@
             border-radius: 15px;
         }
 
-        /* Collapsible Section Styling */
-        details {
-            margin-bottom: 1rem;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            border: 2px solid var(--cyan);
-        }
-        summary {
-            font-weight: 700;
-            padding: 15px;
-            cursor: pointer;
-            outline: none;
-            display: block;
-        }
-        
-        #activites summary {
-             font-size: 1.5rem;
-             color: var(--blue);
-        }
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px; /* Adjust for a potentially smaller nav bar */
+            }
 
-        #agenda summary {
-            font-size: 1.8rem;
-            color: var(--orange);
-        }
-        
-        summary::-webkit-details-marker {
-            display: none;
-        }
+            nav {
+                padding: 5px 0;
+            }
 
-        summary::before {
-            content: '＋';
-            color: var(--hot-pink);
-            margin-right: 15px;
-            font-weight: bold;
-            transition: transform 0.2s;
-            display: inline-block;
-        }
+            nav ul {
+                flex-wrap: wrap; /* Allows nav items to wrap onto the next line */
+            }
 
-        details[open] > summary::before {
-            transform: rotate(45deg);
-        }
+            nav ul li a {
+                padding: 10px 15px 10px 35px; /* Reduces padding for smaller screens */
+                font-size: 0.9rem; /* Makes nav font slightly smaller */
+                background-position: left 10px center;
+            }
 
-        .details-content {
-            padding: 0 20px 20px 20px;
-        }
-        
-        .details-content p, .details-content ul {
-            margin-top: 10px;
+            h1 {
+                font-size: 2.5rem; /* Reduces main title size */
+            }
+
+            h2 {
+                font-size: 1.8rem; /* Reduces section title size */
+            }
+
+            .container {
+                padding: 10px; /* Reduces padding around the main content */
+                margin-top: 10px;
+            }
+
+            section {
+                padding: 15px; /* Reduces padding inside each content box */
+            }
+
+            /* Adjust summary font sizes for better readability on mobile */
+            #activites summary {
+                font-size: 1.3rem;
+            }
+
+            #agenda summary {
+                font-size: 1.5rem;
+            }
+            
+            .info-label {
+                display: block; /* Stack labels above the text on small screens */
+                margin-bottom: 5px;
+            }
         }
 
     </style>
@@ -451,6 +453,7 @@
 
 </body>
 </html>
+
 
 
 
