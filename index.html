@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Swiss Weekend</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Poppins:wght@400;700;900&display=swap');
+
+        :root {
+            --pink: #FF83B6;
+            --blue: #243FFF;
+            --hot-pink: #FF1F85;
+            --orange: #FF9022;
+            --sky-blue: #59BCFF;
+            --purple: #EC75FF;
+            --cyan: #4CFFC6;
+            --bg-color: #f0f4ff;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 80px 0 0 0; /* Add padding to top to avoid nav overlap */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #FF9022;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0 10px;
+        }
+
+        nav ul {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 20px 15px 20px 40px;
+            text-decoration: none;
+            color: #243FFF;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23814DFF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: left 15px center;
+            background-size: 20px;
+        }
+        
+        nav ul li a:hover {
+            color: #243FFF;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--blue), var(--purple), var(--hot-pink), var(--orange));
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+            margin: 0;
+        }
+
+        .swiss-i {
+            position: relative;
+        }
+
+        .swiss-i::after {
+            content: '';
+            position: absolute;
+            top: 0.12em; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0.35em; 
+            height: 0.35em;
+            background-color: #D52B1E; /* Swiss red */
+            background-image: 
+                linear-gradient(to right, white, white),
+                linear-gradient(to bottom, white, white);
+            background-size: 75% 30%, 30% 75%; 
+            background-repeat: no-repeat;
+            background-position: center center;
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--blue);
+            padding-bottom: 10px;
+            border-bottom: 4px solid var(--hot-pink);
+            margin-top: 40px;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        section li {
+            background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23814DFF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>') no-repeat left center;
+            background-size: 20px;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .info-list li, #plan img {
+            background: none;
+        }
+
+        .emoji-list li {
+            background: none;
+            padding-left: 0;
+            font-size: 1.1rem;
+        }
+        
+        .info-list li {
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            color: var(--hot-pink);
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        a {
+            color: var(--blue);
+            font-weight: bold;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--hot-pink);
+        }
+
+        .agenda-day ul {
+            padding-left: 20px;
+            border-left: 3px solid var(--sky-blue);
+        }
+
+        .activity-option-header {
+            background-color: var(--sky-blue);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            display: inline-block;
+            font-size: 1.2rem;
+        }
+
+        #plan img {
+            max-width: 100%;
+            border-radius: 15px;
+        }
+
+        /* Collapsible Section Styling */
+        details {
+            margin-bottom: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border: 2px solid var(--cyan);
+        }
+        summary {
+            font-weight: 700;
+            padding: 15px;
+            cursor: pointer;
+            outline: none;
+            display: block;
+        }
+        
+        #activites summary {
+             font-size: 1.5rem;
+             color: var(--blue);
+        }
+
+        #agenda summary {
+            font-size: 1.8rem;
+            color: var(--orange);
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::before {
+            content: '＋';
+            color: var(--hot-pink);
+            margin-right: 15px;
+            font-weight: bold;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        details[open] > summary::before {
+            transform: rotate(45deg);
+        }
+
+        .details-content {
+            padding: 0 20px 20px 20px;
+        }
+        
+        .details-content p, .details-content ul {
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#info">Infos</a></li>
+            <li><a href="#trousseau">Trousseau</a></li>
+            <li><a href="#agenda">Agenda</a></li>
+            <li><a href="#activites">Activités</a></li>
+            <li><a href="#plan">Plan</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>The Sw<span class="swiss-i">i</span>ss Weekend</h1>
+        </header>
+
+        <section id="info">
+            <h2>Informations de base</h2>
+            <ul class="info-list">
+                <li><span class="info-label">DATE:</span>Vendredi 12 au Dimanche 14 Septembre 2025</li>
+                <li><span class="info-label">LIEU:</span>Leysin, Suisse ; centre de vacances « Les Cabris » , Chambres quadruples, lits simples, avec SdB</li>
+                <li><span class="info-label">ACCÈS:</span>par <strong>Train</strong>: 5min à pied de la Gare Leysin-Feydey qui est à 26min d’Aigle, qui est à 1h15 de Genève ; ou par <strong>Voiture</strong>: 50min depuis Lausanne et 1h15 depuis Genève aéroport (attention il y a peu de places de parking disponibles)</li>
+                <li><span class="info-label">LIENS UTILES:</span>
+                    <ul>
+                        <li><a href="https://www.lescabris.ch/" target="_blank">Le centre les Cabris</a></li>
+                        <li><a href="https://www.alpesvaudoises.ch/fr/Z90/leysin/destination-leysin" target="_blank">Site du Tourisme de Leysin</a></li>
+                        <li><a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">Groupe whatsapp</a> (si pas déjà rejoint)</li>
+                        <li><a href="https://forms.office.com/e/frXNppPRzj" target="_blank">Formulaire de présence</a> (si pas déjà rempli)</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="trousseau">
+            <h2>Tenues exigées et trousseau</h2>
+            <p>“Les Cabris” est un centre de camps de vacances scolaires. 4 lits simples par chambre (110 lits pour 70-80 pers attendues).</p>
+            <ul class="emoji-list">
+                <li>🧼 Serviette de douche + savon etc.</li>
+                <li>🪥 Brosse à dents + dentifrice (ou un masque)</li>
+                <li>👟 Tenue de «jour» plutôt sportive</li>
+                <li>✨ Tenue du «soir» plutôt incroyable</li>
+                <li>😴 Tenue de «nuit» plutôt pyjama</li>
+                <li>👶 Une photo de vous, âgé.e de moins de 15 ans</li>
+                <li>👣 Chaussons d’intérieur (oui… les chaussures sont interdites à l’intérieur pour raisons d’hygiène)</li>
+                <li>🛌 Couvertures ou draps : on vous re-confirme 5 jours avant.</li>
+            </ul>
+            <p>On souhaite vous – et nous ! – offrir cette belle fête ensemble sur tout un weekend. Votre présence est notre cadeau. On comprend que certain.e.s insisteront pour contribuer quand même à la fête: on fera une cagnotte.</p>
+            <p>De toutes les façons, Baptiste ne peut pas être plus comblé qu’il ne l’est déjà grâce à sa femme.</p>
+            <p>Cependant, les activités ne sont pas dans le package 😉</p>
+        </section>
+
+        <section id="agenda">
+            <h2>Agenda général des festivités</h2>
+            <p><em>(non contractuel)</em></p>
+            <details class="agenda-day">
+                <summary>Vendredi 12 Septembre</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Il y aura des arrivées tout au long de la journée (dès 11h le vendredi)</li>
+                        <li><strong>Déjeuner:</strong> restaurant La Prafandaz (à confirmer / à réserver encore).</li>
+                        <li><strong>Après-midi:</strong> temps libre: sieste, babyfoot, balades, etc. (voir la section Activités)</li>
+                        <li><strong>Soir:</strong> Apéro et dîner sur place aux Cabris (dès 19h30)</li>
+                    </ul>
+                </div>
+            </details>
+            <details class="agenda-day">
+                <summary>Samedi 13 Septembre</summary>
+                <div class="details-content">
+                    <ul>
+                       <li><strong>Matin:</strong> réveils en douceur et petit déjeuner fourni au Cabris et d’autres arrivées attendues.</li>
+                       <li><strong>12h-18h:</strong> récupération des paniers pique-nique fournis par « Les Cabris » ; Départ des groupes pour les activités (Big Air Bag, Via Ferrata, VTT, balades, pétanque sur glace, etc.).</li>
+                       <li><strong>18h:</strong> douches recommandées après votre après-midi de jeux</li>
+                       <li><strong>19h30 (ou à peu près):</strong> Apéro et fondue sur place aux Cabris</li>
+                       <li><strong>21h (ou à peu près):</strong> Fiesta et dancing dans le carnotzet au sous-sol des Cabris</li>
+                    </ul>
+                </div>
+            </details>
+            <details class="agenda-day">
+                <summary>Dimanche 14 Septembre</summary>
+                <div class="details-content">
+                    <ul>
+                        <li><strong>Matin:</strong> réveils en douceur</li>
+                        <li><strong>11h-14h:</strong> Brunch fourni par les Cabris</li>
+                        <li><strong>Après-midi:</strong> temps libres : d’autres balades, départs, embrassades et pleurs d'arriver à la fin d’un weekend aussi formidable…</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+        <section id="activites">
+            <h2>Détails des activités</h2>
+            <p>On vous propose un assortiment d’activités des plus folles (BigAirBag, ViaFerrata) aux plus douces (sieste, chèvrerie), avec des options intermédiaires (balades, eisstockschiessen).</p>
+            <p>Pour faciliter l'organisation, nous nous occuperons des réservations pour les activités:  Big Air Bag, chèvrerie et eisstockschiessen. Ce seront les réservations groupées -- c'est pourquoi il faut répondre au sondage dans le groupe whatsapp: <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c</a></p>
+            <p>Pour toutes les autres activités (via ferrata, descente VTT, sieste, etc.) soit aucune réservation n'est nécessaire soit vous devez les faire vous mêmes. Plus d'infos ci-dessous:</p>
+
+            <details>
+                <summary>Activité SIESTE</summary>
+                <div class="details-content">
+                    <p><strong>Réservation:</strong> non. <strong>Prix :</strong> gratuit. <strong>Durée :</strong> libre.</p>
+                    <p>Attention cette activité doit être prise au sérieux. Ceux qui feront la sieste seront attendus sur le dance-floor le soir même.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Activité BALADE</summary>
+                <div class="details-content">
+                    <p><strong>Réservation:</strong> non. <strong>Prix :</strong> CHF 13 si vous montez en télécabine, sinon gratuit.</p>
+                    <p>Pique-nique fourni pour Samedi midi. Tous les départs sont depuis le centre les Cabris. Plus de choix et d’info <a href="https://www.alpesvaudoises.ch/fr/Z90/leysin/destination-leysin" target="_blank">Alpes vaudoises – randonnées</a> ou <a href="https://www.visorando.com/" target="_blank">Visorando</a>.</p>
+                    
+                    <h4 class="activity-option-header">Option 1 « Tour du Village »</h4>
+                    <p><strong>Durée:</strong> >1h ; <strong>Distance :</strong> 2,5 km ; <strong>Dénivelé :</strong> +50m / -50m (très faible)<br>
+                    <strong>Description:</strong> Boucle facile, descendez vers le centre du village, ensuite Centre Sportif de la Piscine. Retour tranquille la lisière de la forêt.<br>
+                    <strong>Pimp-it:</strong> activité au centre sportif (e.g. tir à l’arc), visite chèvrerie, ou goûter-bière au village.</p>
+
+                    <h4 class="activity-option-header">Option 2 « Kuklos-Berneuse »</h4>
+                    <p><strong>Durée:</strong> 1h30 (35min marche); <strong>Distance :</strong> 1,5 km; <strong>Dénivelé :</strong> +100m / -100m<br>
+                    <strong>Description:</strong> marchez 10min jusqu’à la Télécabine Berneuse, et montez (CHF 13). Sentier facile: tour de la crête, plateforme panoramique, puis le restaurant-tournant le Kuklos.<br>
+                    <strong>Pimp-it:</strong> goûter-bière au Kuklos ; redescente en VTT ou Dirt-Scoot.</p>
+
+                    <h4 class="activity-option-header">Option 3 « Lac d’Aï et/ou Lac Mayen »</h4>
+                    <p><strong>Durée :</strong> 2h ; <strong>Distance:</strong> 4 km ; <strong>Dénivelé :</strong> +150m / -150m<br>
+                    <strong>Description:</strong> marchez 10 min jusqu’à la Télécabine Berneuse, et montez (CHF 13). Sentier à gauche pour le lac d’Aï et à droite pour le Lac Mayen. Les copains qui feront la via ferrata seront dans les parages.<br>
+                    <strong>Pimp-it:</strong> Allez jusqu’au sommet de la Tour Mayen (rajoute 450mD+).</p>
+
+                    <h4 class="activity-option-header">Option 4 « Forêt Suchet »</h4>
+                    <p><strong>Durée :</strong> 2h; <strong>Distance :</strong> 4 km; <strong>Dénivelé :</strong> +250m / -250m<br>
+                    <strong>Description du parcours :</strong> Depuis le Centre Les Cabris, prenez la direction de la patinoire et suivez le chemin qui monte dans la forêt en direction de "Suchet". Retour par une boucle qui redescend tranquillement à travers bois vers le village.<br>
+                    <strong>Pimp-it :</strong> activité au centre sportif (e.g. tir à l’arc), visite chèvrerie, ou goûter-bière au village.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Activité VIA FERRATA</summary>
+                <div class="details-content">
+                    <p><strong>Réservation:</strong> oui, à faire soi-même pour l’équipement chez <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a>. <strong>Prix :</strong> équipement ViaFerrata seul : CHF 27. <strong>Durée :</strong> 3-4h.</p>
+                    <p>Cette activité peut être combinée avec une descente en VTT ou Dirt Scoot. Une Via Ferrata est un itinéraire tracé dans une paroi rocheuse, équipé d’échelles, de marches et de différents éléments destinés à rendre la progression aisée et à assurer la sécurité des pratiquants.</p>
+                    <p>Plus d’infos sur la <a href="https://www.sac-cas.ch/fr/cabanes-et-courses/portail-des-courses-du-cas/tour-dai-13/via-ferrata/via-ferrata-tour-dai-717/" target="_blank">Via Ferrata de la Tour d’Aï</a>.</p>
+                    <p>Réservez votre matériel par tél: 024 494 17 44 ou par email: info@heftisports.ch.</p>
+                    <ul>
+                        <li><strong>Forfait Via Ferrata CHF 47.-</strong> inclut le matériel, casque, longe, baudrier ainsi qu’un aller-simple en télésiège.</li>
+                        <li><strong>Forfait Via Ferrata et VTT CHF 62.-</strong> inclut le set complet pour la Via Ferrata + une montée en télésiège et un VTT standard.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>Activité DESCENTE VTT ou DIRT SCOOT</summary>
+                <div class="details-content">
+                    <p><strong>Réservation:</strong> oui, à faire soi-même pour l’équipement chez <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a>. <strong>Prix :</strong> selon forfait. <strong>Durée :</strong> 3h.</p>
+                    <p>Le Dirt Scoot est une trottinette géante. De bonnes chaussures sont conseillées. Réservez par tél: 024 494 17 44 ou par email: info@heftisports.ch.</p>
+                     <ul>
+                        <li><strong>Forfait Scoot: CHF 37.-</strong> inclut la trottinette, casque, et un aller simple en télésiège.</li>
+                        <li><strong>Forfait Via Ferrata et VTT CHF 62.-</strong> inclut le set complet pour la Via Ferrata avec un VTT standard + une montée en télésiège.</li>
+                    </ul>
+                </div>
+            </details>
+
+             <details>
+                <summary>Activité CHÈVRERIE</summary>
+                <div class="details-content">
+                    <p><strong>Réservation:</strong> groupée (<a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">répondre au sondage whatsapp</a>). <strong>Prix :</strong> libre. <strong>Durée :</strong> moins de 1h.</p>
+                    <p>Chaque chèvre a un petit nom et quémandera vos caresses. Il y a donc de fortes chances que vous sentiez le bouc. Pensez à vous laver les mains après. Plus d’infos <a href="https://www.alpesvaudoises.ch/fr/P16369/leysin/la-chevrerie" target="_blank">ici</a>.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Activité EISSTOCKSCHIESSEN (pétanque sur glace)</summary>
+                <div class="details-content">
+                    <p><strong>Réservation:</strong> groupée. <strong>Prix :</strong> CHF 5. <strong>Durée :</strong> 2h.</p>
+                    <p>L'Eisstockschiessen est une mix entre le curling et la pétanque... Entre 4 et 16 joueurs par partie. Chaussures propres obligatoires. On réservera une section de la patinoire donc vous pourrez aussi faire du patinage si vous préférez.</p>
+                </div>
+            </details>
+            
+            <details>
+                <summary>Activité BIG AIR BAG (unique au monde)</summary>
+                <div class="details-content">
+                    <p><strong>Réservation:</strong> groupée (<a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">répondre au sondage whatsapp</a>). <strong>Prix :</strong> CHF 45. <strong>Durée :</strong> 2h.</p>
+                    <p>Plus d'infos: <a href="https://lebag-leysin.ch/fr/" target="_blank">https://lebag-leysin.ch/fr/</a></p>
+                    <p>Deux tremplins (22m et 16m) et un airbag géant. Il faut être à l’aise en ski/snow mais ce n'est pas nécessaire de savoir bien sauter ni de faire des figures. Avant chaque session, vous pouvez faire 30 minutes d’échauffement sur le trampoline.</p>
+                    <p><strong>Apporter :</strong></p>
+                    <ul>
+                        <li>Vieux skis (ou location sur place pour CHF 10).</li>
+                        <li>Vêtements couvrants (mais légers).</li>
+                    </ul>
+                </div>
+            </details>
+
+        </section>
+
+        <section id="plan">
+            <h2>Plan de Leysin</h2>
+            <img src="PlanLeysin.jpg" alt="Plan de Leysin montrant les différents lieux d'activités">
+        </section>
+    </div>
+
+</body>
+</html>
+
+
+
+
