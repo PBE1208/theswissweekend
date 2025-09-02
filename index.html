@@ -29,6 +29,11 @@
             line-height: 1.6;
         }
 
+        /* Language visibility rules */
+        body.show-en .lang-fr { display: none; }
+        body.show-fr .lang-en { display: none; }
+
+
         nav {
             position: fixed;
             top: 0;
@@ -45,6 +50,7 @@
             margin: 0 auto;
             display: flex;
             justify-content: center;
+            align-items: center;
             list-style: none;
             padding: 0;
         }
@@ -65,6 +71,29 @@
         nav ul li a:hover {
             color: #243FFF;
             background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .lang-switcher {
+            display: flex;
+            margin-left: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+        }
+
+        .lang-switcher button {
+            background: none;
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .lang-switcher button.active {
+            background-color: var(--blue);
+            color: white;
         }
 
         .container {
@@ -258,16 +287,50 @@
 
     </style>
 </head>
-<body>
+<body class="show-fr">
 
     <nav>
         <ul>
-            <li><a href="#info">Infos</a></li>
-            <li><a href="#trousseau">Trousseau</a></li>
-            <li><a href="#agenda">Agenda</a></li>
-            <li><a href="#activites">Activités</a></li>
-            <li><a href="#plan">Plan</a></li>
-            <li><a href="#devinettes">Devinettes</a></li>
+            <li>
+                <a href="#info">
+                    <span class="lang-fr">Infos</span>
+                    <span class="lang-en">Info</span>
+                </a>
+            </li>
+            <li>
+                <a href="#trousseau">
+                    <span class="lang-fr">Trousseau</span>
+                    <span class="lang-en">Packing</span>
+                </a>
+            </li>
+            <li>
+                <a href="#agenda">
+                    <span class="lang-fr">Agenda</span>
+                    <span class="lang-en">Schedule</span>
+                </a>
+            </li>
+            <li>
+                <a href="#activites">
+                    <span class="lang-fr">Activités</span>
+                    <span class="lang-en">Activities</span>
+                </a>
+            </li>
+            <li>
+                <a href="#plan">
+                    <span class="lang-fr">Plan</span>
+                    <span class="lang-en">Map</span>
+                </a>
+            </li>
+            <li>
+                <a href="#devinettes">
+                    <span class="lang-fr">Devinettes</span>
+                    <span class="lang-en">Riddles</span>
+                </a>
+            </li>
+            <li class="lang-switcher">
+                <button id="lang-fr-btn" class="active" onclick="switchLanguage('fr')">FR</button>
+                <button id="lang-en-btn" onclick="switchLanguage('en')">EN</button>
+            </li>
         </ul>
     </nav>
 
@@ -277,175 +340,421 @@
         </header>
 
         <section id="info">
-            <h2>Informations de base</h2>
+            <h2 class="lang-fr">Informations de base</h2>
+            <h2 class="lang-en">Basic Information</h2>
             <ul class="info-list">
-                <li><span class="info-label">DATE:</span>Vendredi 12 au Dimanche 14 Septembre 2025</li>
-                <li><span class="info-label">LIEU:</span> Le centre de vacances « Les Cabris » :<br>
-                    <a href="https://maps.app.goo.gl/JacDcaJ1FPJhxSV68" target="_blank">Route des Chamois 2, 1854, Leysin</a><br>
-                    vous serez en chambres quadruples, lits simples, avec SdB
+                <li><span class="info-label">DATE:</span>
+                    <span class="lang-fr">Vendredi 12 au Dimanche 14 Septembre 2025</span>
+                    <span class="lang-en">Friday, September 12th to Sunday, September 14th, 2025</span>
                 </li>
-                <li><span class="info-label">ACCÈS:</span> par <strong>Train</strong>: la gare de Leysin-Feydey est à 5min à pieds du centre. Pour y arriver, il faut prendre un train à Aigle (25min), dont la gare est elle même accessible depuis Lausanne ou Genève en train direct. <br>par <strong>Voiture</strong>: 50min depuis Lausanne et 1h15 depuis Genève aéroport (attention il y a peu de places de parking disponibles)<br>Pour plus d'infos et les itinéraires: <a href="https://www.lescabris.ch/acces-aux-cabris" target="_blank">https://www.lescabris.ch/acces-aux-cabris</a></li>
-                <li><span class="info-label">LIENS UTILES:</span>
+                <li><span class="info-label">
+                        <span class="lang-fr">LIEU:</span>
+                        <span class="lang-en">LOCATION:</span>
+                    </span>
+                    <span class="lang-fr"> Le centre de vacances « Les Cabris » :<br>
+                        <a href="https://maps.app.goo.gl/JacDcaJ1FPJhxSV68" target="_blank">Route des Chamois 2, 1854, Leysin</a><br>
+                        vous serez en chambres quadruples, lits simples, avec SdB
+                    </span>
+                    <span class="lang-en"> The holiday center "Les Cabris":<br>
+                        <a href="https://maps.app.goo.gl/JacDcaJ1FPJhxSV68" target="_blank">Route des Chamois 2, 1854, Leysin</a><br>
+                        You will be in quadruple rooms with single beds and a private bathroom.
+                    </span>
+                </li>
+                <li><span class="info-label">
+                        <span class="lang-fr">ACCÈS:</span>
+                        <span class="lang-en">ACCESS:</span>
+                    </span>
+                    <span class="lang-fr"> par <strong>Train</strong>: la gare de Leysin-Feydey est à 5min à pieds du centre. Pour y arriver, il faut prendre un train à Aigle (25min), dont la gare est elle même accessible depuis Lausanne ou Genève en train direct. <br>par <strong>Voiture</strong>: 50min depuis Lausanne et 1h15 depuis Genève aéroport (attention il y a peu de places de parking disponibles)<br>Pour plus d'infos et les itinéraires: <a href="https://www.lescabris.ch/acces-aux-cabris" target="_blank">https://www.lescabris.ch/acces-aux-cabris</a></span>
+                    <span class="lang-en"> by <strong>Train</strong>: Leysin-Feydey station is a 5-minute walk from the center. To get there, you need to take a train from Aigle (25 min), which is directly accessible from Lausanne or Geneva by train.<br>by <strong>Car</strong>: 50 min from Lausanne and 1h15 from Geneva airport (note: parking is limited).<br>For more info and directions: <a href="https://www.lescabris.ch/acces-aux-cabris" target="_blank">https://www.lescabris.ch/acces-aux-cabris</a></span>
+                </li>
+                <li><span class="info-label">
+                        <span class="lang-fr">LIENS UTILES:</span>
+                        <span class="lang-en">USEFUL LINKS:</span>
+                    </span>
                     <ul>
-                        <li><a href="https://www.lescabris.ch/" target="_blank">Le centre les Cabris</a></li>
-                        <li><a href="https://www.alpesvaudoises.ch/fr/Z90/leysin/destination-leysin" target="_blank">Site du Tourisme de Leysin</a></li>
-                        <li><a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">Groupe whatsapp</a> (si pas déjà rejoint)</li>
-                        <li><a href="https://forms.office.com/e/frXNppPRzj" target="_blank">Formulaire de présence</a> (si pas déjà rempli)</li>
+                        <li>
+                            <a href="https://www.lescabris.ch/" target="_blank">
+                                <span class="lang-fr">Le centre les Cabris</span>
+                                <span class="lang-en">The "Les Cabris" center</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.alpesvaudoises.ch/fr/Z90/leysin/destination-leysin" target="_blank">
+                                <span class="lang-fr">Site du Tourisme de Leysin</span>
+                                <span class="lang-en">Leysin Tourism Website</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">
+                                <span class="lang-fr">Groupe whatsapp</span>
+                                <span class="lang-en">WhatsApp group</span>
+                            </a>
+                            <span class="lang-fr"> (si pas déjà rejoint)</span>
+                            <span class="lang-en"> (if you haven't joined yet)</span>
+                        </li>
+                        <li>
+                            <a href="https://forms.office.com/e/frXNppPRzj" target="_blank">
+                                <span class="lang-fr">Formulaire de présence</span>
+                                <span class="lang-en">Attendance Form</span>
+                            </a>
+                            <span class="lang-fr"> (si pas déjà rempli)</span>
+                            <span class="lang-en"> (if not already filled out)</span>
+                        </li>
                     </ul>
                 </li>
             </ul>
         </section>
 
         <section id="trousseau">
-            <h2>Tenues exigées et trousseau</h2>
-            <p>“Les Cabris” est un centre de camps de vacances scolaires. SVP apportez (par personne):</p>
+            <h2 class="lang-fr">Tenues exigées et trousseau</h2>
+            <h2 class="lang-en">What to Bring</h2>
+            <p class="lang-fr">“Les Cabris” est un centre de camps de vacances scolaires. SVP apportez (par personne):</p>
+            <p class="lang-en">“Les Cabris” is a school holiday camp. Please bring (per person):</p>
             <ul class="emoji-list">
-                <li>🧼 Serviette de douche + savon etc.</li>
-                <li>🪥 Brosse à dents + dentifrice (ou un masque)</li>
-                <li>👟 Tenue de «jour» plutôt sportive</li>
-                <li>✨ Tenue du «soir» plutôt incroyable</li>
-                <li>😴 Tenue de «nuit» plutôt pyjama</li>
-                <li>👶 Une photo de vous, âgé.e de moins de 15 ans</li>
-                <li>👣 Chaussons d’intérieur (oui… les chaussures sont interdites à l’intérieur pour raisons d’hygiène)</li>
-                <li>🛌 <strong>Literie:</strong> Les draps housse et taies d’oreiller sont fournis. Apportez un sac de couchage léger ou sac à rêves. NB : Pour ceux qui viennent en avion, on vous les fournira sur place.</li>
+                <li>🧼 
+                    <span class="lang-fr">Serviette de douche + savon etc.</span>
+                    <span class="lang-en">Shower towel + soap, etc.</span>
+                </li>
+                <li>🪥 
+                    <span class="lang-fr">Brosse à dents + dentifrice (ou un masque)</span>
+                    <span class="lang-en">Toothbrush + toothpaste (or a mask)</span>
+                </li>
+                <li>👟 
+                    <span class="lang-fr">Tenue de «jour» plutôt sportive</span>
+                    <span class="lang-en">"Daytime" outfit (sporty)</span>
+                </li>
+                <li>✨ 
+                    <span class="lang-fr">Tenue du «soir» plutôt incroyable</span>
+                    <span class="lang-en">"Evening" outfit (fabulous)</span>
+                </li>
+                <li>😴 
+                    <span class="lang-fr">Tenue de «nuit» plutôt pyjama</span>
+                    <span class="lang-en">"Nighttime" outfit (pajamas)</span>
+                </li>
+                <li>👶 
+                    <span class="lang-fr">Une photo de vous, âgé.e de moins de 15 ans</span>
+                    <span class="lang-en">A photo of yourself under the age of 15</span>
+                </li>
+                <li>👣 
+                    <span class="lang-fr">Chaussons d’intérieur (oui… les chaussures sont interdites à l’intérieur pour raisons d’hygiène)</span>
+                    <span class="lang-en">Indoor slippers (yes... shoes are forbidden inside for hygiene reasons)</span>
+                </li>
+                <li>🛌 
+                    <strong class="lang-fr">Literie:</strong>
+                    <strong class="lang-en">Bedding:</strong>
+                    <span class="lang-fr"> Les draps housse et taies d’oreiller sont fournis. Apportez un sac de couchage léger ou sac à rêves. NB : Pour ceux qui viennent en avion, on vous les fournira sur place.</span>
+                    <span class="lang-en"> Fitted sheets and pillowcases are provided. Please bring a light sleeping bag. Note: For those arriving by plane, we will provide them for you.</span>
+                </li>
             </ul>
-            <p>On souhaite vous – et nous ! – offrir cette belle fête ensemble sur tout un weekend. Votre présence est notre cadeau. On comprend que certain.e.s insisteront pour contribuer quand même à la fête: on fera une cagnotte.</p>
-            <p>De toutes les façons, Baptiste ne peut pas être plus comblé qu’il ne l’est déjà grâce à sa femme.</p>
+            <p class="lang-fr">On souhaite vous – et nous ! – offrir cette belle fête ensemble sur tout un weekend. Votre présence est notre cadeau. On comprend que certain.e.s insisteront pour contribuer quand même à la fête: on fera une cagnotte.</p>
+            <p class="lang-en">We want to offer you – and us! – this wonderful celebration together for a whole weekend. Your presence is our gift. We understand that some of you will insist on contributing anyway: we will set up a collection pot.</p>
+            <p class="lang-fr">De toutes les façons, Baptiste ne peut pas être plus comblé qu’il ne l’est déjà grâce à sa femme.</p>
+            <p class="lang-en">In any case, Baptiste couldn't be happier than he already is, thanks to his wife.</p>
             <p>Cependant, les activités ne sont pas dans le package 😉</p>
+            <p class="lang-en">However, activities are not included in the package 😉</p>
         </section>
 
         <section id="agenda">
-            <h2>Agenda général des festivités</h2>
-            <p><em>(non contractuel)</em></p>
+            <h2 class="lang-fr">Agenda général des festivités</h2>
+            <h2 class="lang-en">General Schedule of Festivities</h2>
+            <p><em>
+                <span class="lang-fr">(non contractuel)</span>
+                <span class="lang-en">(provisional)</span>
+            </em></p>
             <details class="agenda-day">
-                <summary>Vendredi 12 Septembre</summary>
+                <summary>
+                    <span class="lang-fr">Vendredi 12 Septembre</span>
+                    <span class="lang-en">Friday, September 12th</span>
+                </summary>
                 <div class="details-content">
                     <ul>
-                        <li>Il y aura des arrivées tout au long de la journée (dès 11h le vendredi)</li>
-                        <li><strong>Déjeuner:</strong> restaurant La Prafandaz (à confirmer / à réserver encore).</li>
-                        <li><strong>Après-midi:</strong> temps libre: sieste, babyfoot, balades, etc. (voir la section Activités)</li>
-                        <li><strong>Soir:</strong> Apéro et dîner sur place aux Cabris (dès 19h30)</li>
+                        <li class="lang-fr">Il y aura des arrivées tout au long de la journée (dès 11h le vendredi)</li>
+                        <li class="lang-en">Arrivals will take place throughout the day (starting from 11 am on Friday)</li>
+                        <li class="lang-fr"><strong>Déjeuner:</strong> restaurant La Prafandaz (à confirmer / à réserver encore).</li>
+                        <li class="lang-en"><strong>Lunch:</strong> La Prafandaz restaurant (to be confirmed / reservation pending).</li>
+                        <li class="lang-fr"><strong>Après-midi:</strong> temps libre: sieste, babyfoot, balades, etc. (voir la section Activités)</li>
+                        <li class="lang-en"><strong>Afternoon:</strong> free time: nap, foosball, walks, etc. (see Activities section)</li>
+                        <li class="lang-fr"><strong>Soir:</strong> Apéro et dîner sur place aux Cabris (dès 19h30)</li>
+                        <li class="lang-en"><strong>Evening:</strong> Drinks and dinner at Les Cabris (from 7:30 pm)</li>
                     </ul>
                 </div>
             </details>
             <details class="agenda-day">
-                <summary>Samedi 13 Septembre</summary>
+                <summary>
+                    <span class="lang-fr">Samedi 13 Septembre</span>
+                    <span class="lang-en">Saturday, September 13th</span>
+                </summary>
                 <div class="details-content">
                     <ul>
-                       <li><strong>Matin:</strong> réveils en douceur et petit déjeuner fourni au Cabris et d’autres arrivées attendues.</li>
-                       <li><strong>12h-18h:</strong> récupération des paniers pique-nique fournis par « Les Cabris » ; Départ des groupes pour les activités (Big Air Bag, Via Ferrata, VTT, balades, pétanque sur glace, etc.).</li>
-                       <li><strong>18h:</strong> douches recommandées après votre après-midi de jeux</li>
-                       <li><strong>19h30 (ou à peu près):</strong> Apéro et fondue sur place aux Cabris</li>
-                       <li><strong>21h (ou à peu près):</strong> Fiesta et dancing dans le carnotzet au sous-sol des Cabris</li>
+                       <li class="lang-fr"><strong>Matin:</strong> réveils en douceur et petit déjeuner fourni au Cabris et d’autres arrivées attendues.</li>
+                       <li class="lang-en"><strong>Morning:</strong> gentle wake-up, breakfast provided at Les Cabris, and more arrivals expected.</li>
+                       <li class="lang-fr"><strong>12h-18h:</strong> récupération des paniers pique-nique fournis par « Les Cabris » ; Départ des groupes pour les activités (Big Air Bag, Via Ferrata, VTT, balades, pétanque sur glace, etc.).</li>
+                       <li class="lang-en"><strong>12pm-6pm:</strong> pick up picnic baskets provided by "Les Cabris"; groups depart for activities (Big Air Bag, Via Ferrata, MTB, hikes, ice pétanque, etc.).</li>
+                       <li class="lang-fr"><strong>18h:</strong> douches recommandées après votre après-midi de jeux</li>
+                       <li class="lang-en"><strong>6pm:</strong> showers recommended after your afternoon of games</li>
+                       <li class="lang-fr"><strong>19h30 (ou à peu près):</strong> Apéro et fondue sur place aux Cabris</li>
+                       <li class="lang-en"><strong>7:30pm (approximately):</strong> Drinks and fondue at Les Cabris</li>
+                       <li class="lang-fr"><strong>21h (ou à peu près):</strong> Fiesta et dancing dans le carnotzet au sous-sol des Cabris</li>
+                       <li class="lang-en"><strong>9pm (approximately):</strong> Party and dancing in the "carnotzet" in the basement</li>
                     </ul>
                 </div>
             </details>
             <details class="agenda-day">
-                <summary>Dimanche 14 Septembre</summary>
+                <summary>
+                    <span class="lang-fr">Dimanche 14 Septembre</span>
+                    <span class="lang-en">Sunday, September 14th</span>
+                </summary>
                 <div class="details-content">
                     <ul>
-                        <li><strong>Matin:</strong> réveils en douceur</li>
-                        <li><strong>11h-14h:</strong> Brunch fourni par les Cabris</li>
-                        <li><strong>Après-midi:</strong> temps libres : d’autres balades, départs, embrassades et pleurs d'arriver à la fin d’un weekend aussi formidable…</li>
+                        <li class="lang-fr"><strong>Matin:</strong> réveils en douceur</li>
+                        <li class="lang-en"><strong>Morning:</strong> gentle wake-up</li>
+                        <li class="lang-fr"><strong>11h-14h:</strong> Brunch fourni par les Cabris</li>
+                        <li class="lang-en"><strong>11am-2pm:</strong> Brunch provided by Les Cabris</li>
+                        <li class="lang-fr"><strong>Après-midi:</strong> temps libres : d’autres balades, départs, embrassades et pleurs d'arriver à la fin d’un weekend aussi formidable…</li>
+                        <li class="lang-en"><strong>Afternoon:</strong> free time: more walks, departures, hugs, and tears as such a wonderful weekend comes to an end...</li>
                     </ul>
                 </div>
             </details>
         </section>
 
         <section id="activites">
-            <h2>Détails des activités</h2>
-            <p>On vous propose un assortiment d’activités des plus folles (BigAirBag, ViaFerrata) aux plus douces (sieste, chèvrerie), avec des options intermédiaires (balades, eisstockschiessen).</p>
-            <p>Pour faciliter l'organisation, nous nous occuperons des réservations pour les activités:  Big Air Bag, chèvrerie et eisstockschiessen. Ce seront les réservations groupées -- c'est pourquoi il faut répondre au sondage dans le <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">groupe whatsapp</a>.</p>
-            <p>Pour toutes les autres activités (via ferrata, descente VTT, sieste, etc.) soit aucune réservation n'est nécessaire soit vous devez les faire vous mêmes. Plus d'infos ci-dessous:</p>
+            <h2 class="lang-fr">Détails des activités</h2>
+            <h2 class="lang-en">Activity Details</h2>
+            <div class="lang-fr">
+                <p>On vous propose un assortiment d’activités des plus folles (BigAirBag, ViaFerrata) aux plus douces (sieste, chèvrerie), avec des options intermédiaires (balades, eisstockschiessen).</p>
+                <p>Pour faciliter l'organisation, nous nous occuperons des réservations pour les activités:  Big Air Bag, chèvrerie et eisstockschiessen. Ce seront les réservations groupées -- c'est pourquoi il faut répondre au sondage dans le <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">groupe whatsapp</a>.</p>
+                <p>Pour toutes les autres activités (via ferrata, descente VTT, sieste, etc.) soit aucune réservation n'est nécessaire soit vous devez les faire vous mêmes. Plus d'infos ci-dessous:</p>
+            </div>
+            <div class="lang-en">
+                <p>We offer a range of activities, from the wildest (Big Air Bag, Via Ferrata) to the mildest (nap, goat farm), with intermediate options (hikes, ice pétanque).</p>
+                <p>To make organizing easier, we will handle the bookings for the following activities: Big Air Bag, goat farm, and Eisstockschiessen. These will be group bookings, which is why you need to answer the poll in the <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">WhatsApp group</a>.</p>
+                <p>For all other activities (Via Ferrata, MTB descent, naps, etc.), either no reservation is necessary, or you must make them yourselves. More info below:</p>
+            </div>
 
             <details>
-                <summary>Activité SIESTE</summary>
+                <summary>
+                    <span class="lang-fr">Activité SIESTE</span>
+                    <span class="lang-en">Activity: NAP TIME</span>
+                </summary>
                 <div class="details-content">
-                    <p><strong>Réservation:</strong> non. <strong>Prix :</strong> gratuit. <strong>Durée :</strong> libre.</p>
-                    <p>Attention cette activité doit être prise au sérieux. Ceux qui feront la sieste seront attendus sur le dance-floor le soir même.</p>
+                    <p>
+                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span> non. 
+                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span> gratuit / free. 
+                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> libre / open.
+                    </p>
+                    <p class="lang-fr">Attention cette activité doit être prise au sérieux. Ceux qui feront la sieste seront attendus sur le dance-floor le soir même.</p>
+                    <p class="lang-en">Warning: this activity must be taken seriously. Those who nap are expected on the dance floor later that evening.</p>
                 </div>
             </details>
 
             <details>
-                <summary>Activité BALADE</summary>
+                <summary>
+                    <span class="lang-fr">Activité BALADE</span>
+                    <span class="lang-en">Activity: HIKING</span>
+                </summary>
                 <div class="details-content">
-                    <p><strong>Réservation:</strong> non. <strong>Prix :</strong> CHF 13 si vous montez en télécabine, sinon gratuit.</p>
-                    <p>Pique-nique fourni pour Samedi midi. Tous les départs sont depuis le centre les Cabris. Plus de choix et d’info <a href="https://www.alpesvaudoises.ch/fr/Z90/leysin/destination-leysin" target="_blank">Alpes vaudoises – randonnées</a> ou <a href="https://www.visorando.com/" target="_blank">Visorando</a>.</p>
+                    <p>
+                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span> non. 
+                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span> CHF 13 if you take the cable car, otherwise free.
+                    </p>
+                    <p class="lang-fr">Pique-nique fourni pour Samedi midi. Tous les départs sont depuis le centre les Cabris. Plus de choix et d’info <a href="https://www.alpesvaudoises.ch/fr/Z90/leysin/destination-leysin" target="_blank">Alpes vaudoises – randonnées</a> ou <a href="https://www.visorando.com/" target="_blank">Visorando</a>.</p>
+                    <p class="lang-en">Picnic provided for Saturday lunch. All hikes start from the "Les Cabris" center. More choices and info at <a href="https://www.alpesvaudoises.ch/fr/Z90/leysin/destination-leysin" target="_blank">Vaud Alps – hiking</a> or <a href="https://www.visorando.com/" target="_blank">Visorando</a>.</p>
                     
-                    <h4 class="activity-option-header">Option 1 « Tour du Village »</h4>
-                    <p><strong>Durée:</strong> >1h ; <strong>Distance :</strong> 2,5 km ; <strong>Dénivelé :</strong> +50m / -50m (très faible)<br>
-                    <strong>Description:</strong> Boucle facile, descendez vers le centre du village, ensuite Centre Sportif de la Piscine. Retour tranquille la lisière de la forêt.<br>
-                    <strong>Pimp-it:</strong> activité au centre sportif (e.g. tir à l’arc), visite chèvrerie, ou goûter-bière au village.</p>
+                    <h4 class="activity-option-header">
+                        <span class="lang-fr">Option 1 « Tour du Village »</span>
+                        <span class="lang-en">Option 1 "Village Tour"</span>
+                    </h4>
+                    <p>
+                        <strong class="lang-fr">Durée:</strong><span class="lang-en">Duration:</span> >1h ; 
+                        <strong>Distance :</strong> 2.5 km ; 
+                        <strong class="lang-fr">Dénivelé :</strong><span class="lang-en">Elevation gain:</span> +50m / -50m (very low)<br>
+                        <strong>Description:</strong> 
+                        <span class="lang-fr">Boucle facile, descendez vers le centre du village, ensuite Centre Sportif de la Piscine. Retour tranquille la lisière de la forêt.</span>
+                        <span class="lang-en">Easy loop, head down towards the village center, then to the Sports Center by the pool. A quiet return along the edge of the forest.</span><br>
+                        <strong>Pimp-it:</strong> 
+                        <span class="lang-fr">activité au centre sportif (e.g. tir à l’arc), visite chèvrerie, ou goûter-bière au village.</span>
+                        <span class="lang-en">activity at the sports center (e.g., archery), visit the goat farm, or enjoy a snack/beer in the village.</span>
+                    </p>
 
-                    <h4 class="activity-option-header">Option 2 « Kuklos-Berneuse »</h4>
-                    <p><strong>Durée:</strong> 1h30 (35min marche); <strong>Distance :</strong> 1,5 km; <strong>Dénivelé :</strong> +100m / -100m<br>
-                    <strong>Description:</strong> marchez 10min jusqu’à la Télécabine Berneuse, et montez (CHF 13). Sentier facile: tour de la crête, plateforme panoramique, puis le restaurant-tournant le Kuklos.<br>
-                    <strong>Pimp-it:</strong> goûter-bière au Kuklos ; redescente en VTT ou Dirt-Scoot.</p>
+                    <h4 class="activity-option-header">
+                        <span class="lang-fr">Option 2 « Kuklos-Berneuse »</span>
+                        <span class="lang-en">Option 2 "Kuklos-Berneuse"</span>
+                    </h4>
+                    <p>
+                        <strong class="lang-fr">Durée:</strong><span class="lang-en">Duration:</span> 1.5h (35min walk); 
+                        <strong>Distance :</strong> 1.5 km; 
+                        <strong class="lang-fr">Dénivelé :</strong><span class="lang-en">Elevation gain:</span> +100m / -100m<br>
+                        <strong>Description:</strong> 
+                        <span class="lang-fr">marchez 10min jusqu’à la Télécabine Berneuse, et montez (CHF 13). Sentier facile: tour de la crête, plateforme panoramique, puis le restaurant-tournant le Kuklos.</span>
+                        <span class="lang-en">walk 10 mins to the Berneuse cable car and ride up (CHF 13). Easy trail: tour of the ridge, panoramic platform, then the revolving restaurant, Kuklos.</span><br>
+                        <strong>Pimp-it:</strong> 
+                        <span class="lang-fr">goûter-bière au Kuklos ; redescente en VTT ou Dirt-Scoot.</span>
+                        <span class="lang-en">snack/beer at Kuklos; descend by mountain bike or Dirt Scoot.</span>
+                    </p>
 
-                    <h4 class="activity-option-header">Option 3 « Lac d’Aï et/ou Lac Mayen »</h4>
-                    <p><strong>Durée :</strong> 2h ; <strong>Distance:</strong> 4 km ; <strong>Dénivelé :</strong> +150m / -150m<br>
-                    <strong>Description:</strong> marchez 10 min jusqu’à la Télécabine Berneuse, et montez (CHF 13). Sentier à gauche pour le lac d’Aï et à droite pour le Lac Mayen. Les copains qui feront la via ferrata seront dans les parages.<br>
-                    <strong>Pimp-it:</strong> Allez jusqu’au sommet de la Tour Mayen (rajoute 450mD+).</p>
+                    <h4 class="activity-option-header">
+                        <span class="lang-fr">Option 3 « Lac d’Aï et/ou Lac Mayen »</span>
+                        <span class="lang-en">Option 3 "Lac d’Aï and/or Lac Mayen"</span>
+                    </h4>
+                    <p>
+                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> 2h ; 
+                        <strong>Distance:</strong> 4 km ; 
+                        <strong class="lang-fr">Dénivelé :</strong><span class="lang-en">Elevation gain:</span> +150m / -150m<br>
+                        <strong>Description:</strong> 
+                        <span class="lang-fr">marchez 10 min jusqu’à la Télécabine Berneuse, et montez (CHF 13). Sentier à gauche pour le lac d’Aï et à droite pour le Lac Mayen. Les copains qui feront la via ferrata seront dans les parages.</span>
+                        <span class="lang-en">walk 10 mins to the Berneuse cable car and ride up (CHF 13). The trail on the left leads to Lac d’Aï, and the right to Lac Mayen. Our friends doing the via ferrata will be nearby.</span><br>
+                        <strong>Pimp-it:</strong> 
+                        <span class="lang-fr">Allez jusqu’au sommet de la Tour Mayen (rajoute 450mD+).</span>
+                        <span class="lang-en">Go to the summit of Tour Mayen (adds 450m elevation gain).</span>
+                    </p>
 
-                    <h4 class="activity-option-header">Option 4 « Forêt Suchet »</h4>
-                    <p><strong>Durée :</strong> 2h; <strong>Distance :</strong> 4 km; <strong>Dénivelé :</strong> +250m / -250m<br>
-                    <strong>Description du parcours :</strong> Depuis le Centre Les Cabris, prenez la direction de la patinoire et suivez le chemin qui monte dans la forêt en direction de "Suchet". Retour par une boucle qui redescend tranquillement à travers bois vers le village.<br>
-                    <strong>Pimp-it :</strong> activité au centre sportif (e.g. tir à l’arc), visite chèvrerie, ou goûter-bière au village.</p>
+                    <h4 class="activity-option-header">
+                        <span class="lang-fr">Option 4 « Forêt Suchet »</span>
+                        <span class="lang-en">Option 4 "Suchet Forest"</span>
+                    </h4>
+                    <p>
+                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> 2h; 
+                        <strong>Distance :</strong> 4 km; 
+                        <strong class="lang-fr">Dénivelé :</strong><span class="lang-en">Elevation gain:</span> +250m / -250m<br>
+                        <strong>Description du parcours :</strong> 
+                        <span class="lang-fr">Depuis le Centre Les Cabris, prenez la direction de la patinoire et suivez le chemin qui monte dans la forêt en direction de "Suchet". Retour par une boucle qui redescend tranquillement à travers bois vers le village.</span>
+                        <span class="lang-en">From Les Cabris, head towards the ice rink and follow the path up into the forest towards "Suchet." Return via a loop that gently descends through the woods back to the village.</span><br>
+                        <strong>Pimp-it :</strong> 
+                        <span class="lang-fr">activité au centre sportif (e.g. tir à l’arc), visite chèvrerie, ou goûter-bière au village.</span>
+                        <span class="lang-en">activity at the sports center (e.g., archery), visit the goat farm, or enjoy a snack/beer in the village.</span>
+                    </p>
                 </div>
             </details>
 
             <details>
-                <summary>Activité VIA FERRATA</summary>
+                <summary>Activity: VIA FERRATA</summary>
                 <div class="details-content">
-                    <p><strong>Réservation:</strong> oui, à faire soi-même pour l’équipement chez <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a>. <strong>Prix :</strong> équipement ViaFerrata seul : CHF 27. <strong>Durée :</strong> 3h30 (montée télésiège + 45min marche approche + 1h20 de via + descente)</p>
-                    <p>La vue depuis le sommet est dingue. Pas de grosses difficultés technique, sauf la vision du vide. Plus d’infos et topo du parcours ici : <a href="https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/" target="_blank">https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/</a></p>
-                    <p><em>Attention : cette activité n’est adaptée pour ceux qui ont le vertige !</em></p>
-                    <p>Cette activité peut être combinée avec une descente en VTT ou Dirt Scoot. Réservez votre matériel par tél: 024 494 17 44 ou par email: info@heftisports.ch.</p>
+                    <p>
+                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span>
+                        <span class="lang-fr"> oui, à faire soi-même pour l’équipement chez </span>
+                        <span class="lang-en"> yes, book the equipment yourself at </span>
+                        <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a>. 
+                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span>
+                        <span class="lang-fr"> équipement ViaFerrata seul : CHF 27. </span>
+                        <span class="lang-en"> Via Ferrata equipment only: CHF 27. </span>
+                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> 3.5h 
+                        <span class="lang-fr">(montée télésiège + 45min marche approche + 1h20 de via + descente)</span>
+                        <span class="lang-en">(cable car ride + 45min approach walk + 1h20 on the route + descent)</span>
+                    </p>
+                    <p class="lang-fr">La vue depuis le sommet est dingue. Pas de grosses difficultés technique, sauf la vision du vide. Plus d’infos et topo du parcours ici : <a href="https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/" target="_blank">https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/</a></p>
+                    <p class="lang-en">The view from the top is insane. No major technical difficulties, except for the exposure to heights. More info and route description here: <a href="https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/" target="_blank">https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/</a></p>
+                    <p><em>
+                        <span class="lang-fr">Attention : cette activité n’est adaptée pour ceux qui ont le vertige !</span>
+                        <span class="lang-en">Warning: this activity is not suitable for those with a fear of heights!</span>
+                    </em></p>
+                    <p class="lang-fr">Cette activité peut être combinée avec une descente en VTT ou Dirt Scoot. Réservez votre matériel par tél: 024 494 17 44 ou par email: info@heftisports.ch.</p>
+                    <p class="lang-en">This activity can be combined with a mountain bike or Dirt Scoot descent. Book your equipment by phone: 024 494 17 44 or by email: info@heftisports.ch.</p>
                     <ul>
-                        <li><strong>Forfait Via Ferrata CHF 47.-</strong> inclut le matériel, casque, longe, baudrier ainsi qu’un aller-simple en télésiège.</li>
-                        <li><strong>Forfait Via Ferrata et VTT CHF 62.-</strong> inclut le set complet pour la Via Ferrata + une montée en télésiège et un VTT standard.</li>
+                        <li class="lang-fr"><strong>Forfait Via Ferrata CHF 47.-</strong> inclut le matériel, casque, longe, baudrier ainsi qu’un aller-simple en télésiège.</li>
+                        <li class="lang-en"><strong>Via Ferrata Package CHF 47.-</strong> includes equipment, helmet, lanyard, harness, and a one-way cable car ticket.</li>
+                        <li class="lang-fr"><strong>Forfait Via Ferrata et VTT CHF 62.-</strong> inclut le set complet pour la Via Ferrata + une montée en télésiège et un VTT standard.</li>
+                        <li class="lang-en"><strong>Via Ferrata and MTB Package CHF 62.-</strong> includes the complete Via Ferrata set + a cable car ride and a standard mountain bike.</li>
                     </ul>
                 </div>
             </details>
 
             <details>
-                <summary>Activité DESCENTE VTT ou DIRT SCOOT</summary>
+                <summary>
+                    <span class="lang-fr">Activité DESCENTE VTT ou DIRT SCOOT</span>
+                    <span class="lang-en">Activity: MTB or DIRT SCOOT DESCENT</span>
+                </summary>
                 <div class="details-content">
-                    <p><strong>Réservation:</strong> oui, à faire soi-même pour l’équipement chez <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a>. <strong>Prix :</strong> selon forfait. <strong>Durée :</strong> 3h.</p>
-                    <p>Le Dirt Scoot est une trottinette géante. De bonnes chaussures sont conseillées. Réservez par tél: 024 494 17 44 ou par email: info@heftisports.ch.</p>
+                    <p>
+                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span>
+                        <span class="lang-fr"> oui, à faire soi-même pour l’équipement chez </span>
+                        <span class="lang-en"> yes, book the equipment yourself at </span>
+                        <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a>. 
+                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span>
+                        <span class="lang-fr"> selon forfait. </span>
+                        <span class="lang-en"> depends on package. </span>
+                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> 3h.
+                    </p>
+                    <p class="lang-fr">Le Dirt Scoot est une trottinette géante. De bonnes chaussures sont conseillées. Réservez par tél: 024 494 17 44 ou par email: info@heftisports.ch.</p>
+                    <p class="lang-en">The Dirt Scoot is a giant scooter. Good shoes are recommended. Book by phone: 024 494 17 44 or by email: info@heftisports.ch.</p>
                      <ul>
-                        <li><strong>Forfait Scoot: CHF 37.-</strong> inclut la trottinette, casque, et un aller simple en télésiège.</li>
-                        <li><strong>Forfait Via Ferrata et VTT CHF 62.-</strong> inclut le set complet pour la Via Ferrata avec un VTT standard + une montée en télésiège.</li>
+                        <li class="lang-fr"><strong>Forfait Scoot: CHF 37.-</strong> inclut la trottinette, casque, et un aller simple en télésiège.</li>
+                        <li class="lang-en"><strong>Scoot Package: CHF 37.-</strong> includes the scooter, helmet, and a one-way cable car ticket.</li>
+                        <li class="lang-fr"><strong>Forfait Via Ferrata et VTT CHF 62.-</strong> inclut le set complet pour la Via Ferrata avec un VTT standard + une montée en télésiège.</li>
+                        <li class="lang-en"><strong>Via Ferrata and MTB Package CHF 62.-</strong> includes the complete Via Ferrata set with a standard MTB + a one-way cable car ticket.</li>
                     </ul>
                 </div>
             </details>
 
              <details>
-                <summary>Activité CHÈVRERIE</summary>
+                <summary>
+                    <span class="lang-fr">Activité CHÈVRERIE</span>
+                    <span class="lang-en">Activity: GOAT FARM</span>
+                </summary>
                 <div class="details-content">
-                    <p><strong>Réservation:</strong> groupée (répondre au sondage dans le <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">groupe whatsapp</a>). <strong>Prix :</strong> libre. <strong>Durée :</strong> moins de 1h.</p>
-                    <p>Chaque chèvre a un petit nom et quémandera vos caresses. Il y a donc de fortes chances que vous sentiez le bouc. Pensez à vous laver les mains après. Plus d’infos <a href="https://www.alpesvaudoises.ch/fr/P16369/leysin/la-chevrerie" target="_blank">ici</a>.</p>
+                    <p>
+                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span>
+                        <span class="lang-fr"> groupée (répondre au sondage dans le </span>
+                        <span class="lang-en"> group (please answer the poll in the </span>
+                        <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">
+                            <span class="lang-fr">groupe whatsapp</span><span class="lang-en">WhatsApp group</span>
+                        </a>). 
+                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span> libre / free. 
+                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span>
+                        <span class="lang-fr"> moins de 1h.</span>
+                        <span class="lang-en"> less than 1 hour.</span>
+                    </p>
+                    <p class="lang-fr">Chaque chèvre a un petit nom et quémandera vos caresses. Il y a donc de fortes chances que vous sentiez le bouc. Pensez à vous laver les mains après. Plus d’infos <a href="https://www.alpesvaudoises.ch/fr/P16369/leysin/la-chevrerie" target="_blank">ici</a>.</p>
+                    <p class="lang-en">Each goat has a name and will beg for pets. There's a high chance you'll smell like a goat afterward. Remember to wash your hands. More info <a href="https://www.alpesvaudoises.ch/fr/P16369/leysin/la-chevrerie" target="_blank">here</a>.</p>
                 </div>
             </details>
 
             <details>
-                <summary>Activité EISSTOCKSCHIESSEN (pétanque sur glace)</summary>
+                <summary>
+                    <span class="lang-fr">Activité EISSTOCKSCHIESSEN (pétanque sur glace)</span>
+                    <span class="lang-en">Activity: EISSTOCKSCHIESSEN (ice stock sport)</span>
+                </summary>
                 <div class="details-content">
-                    <p><strong>Réservation:</strong> groupée. <strong>Prix :</strong> CHF 5. <strong>Durée :</strong> 2h.</p>
-                    <p>L'Eisstockschiessen est une mix entre le curling et la pétanque... Entre 4 et 16 joueurs par partie. Chaussures propres obligatoires. On réservera une section de la patinoire donc vous pourrez aussi faire du patinage si vous préférez.</p>
+                    <p>
+                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span> groupée / group. 
+                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span> CHF 5. 
+                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> 2h.
+                    </p>
+                    <p class="lang-fr">L'Eisstockschiessen est une mix entre le curling et la pétanque... Entre 4 et 16 joueurs par partie. Chaussures propres obligatoires. On réservera une section de la patinoire donc vous pourrez aussi faire du patinage if you préférez.</p>
+                    <p class="lang-en">Eisstockschiessen is a mix between curling and pétanque... Between 4 and 16 players per game. Clean shoes are mandatory. We will reserve a section of the ice rink, so you can also go ice skating if you prefer.</p>
                 </div>
             </details>
             
             <details>
-                <summary>Activité BIG AIR BAG (unique au monde)</summary>
+                <summary>
+                    <span class="lang-fr">Activité BIG AIR BAG (unique au monde)</span>
+                    <span class="lang-en">Activity: BIG AIR BAG (one of a kind)</span>
+                </summary>
                 <div class="details-content">
-                    <p><strong>Réservation:</strong> groupée (répondre au sondage dans le <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">groupe whatsapp</a>). <strong>Prix :</strong> CHF 45. <strong>Durée :</strong> 2h.</p>
-                    <p>Plus d'infos: <a href="https://lebag-leysin.ch/fr/" target="_blank">https://lebag-leysin.ch/fr/</a></p>
-                    <p>Deux tremplins (22m et 16m) et un airbag géant. Il faut être à l’aise en ski/snow mais ce n'est pas nécessaire de savoir bien sauter ni de faire des figures. Avant chaque session, vous pouvez faire 30 minutes d’échauffement sur le trampoline.</p>
-                    <p><strong>Apporter :</strong></p>
+                    <p>
+                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span>
+                        <span class="lang-fr"> groupée (répondre au sondage dans le </span>
+                        <span class="lang-en"> group (please answer the poll in the </span>
+                        <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">
+                            <span class="lang-fr">groupe whatsapp</span><span class="lang-en">WhatsApp group</span>
+                        </a>). 
+                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span> CHF 45. 
+                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> 2h.
+                    </p>
+                    <p>
+                        <span class="lang-fr">Plus d'infos: </span><span class="lang-en">More info: </span>
+                        <a href="https://lebag-leysin.ch/fr/" target="_blank">https://lebag-leysin.ch/fr/</a>
+                    </p>
+                    <p class="lang-fr">Deux tremplins (22m et 16m) et un airbag géant. Il faut être à l’aise en ski/snow mais ce n'est pas nécessaire de savoir bien sauter ni de faire des figures. Avant chaque session, vous pouvez faire 30 minutes d’échauffement sur le trampoline.</p>
+                    <p class="lang-en">Two ramps (22m and 16m) and a giant airbag. You need to be comfortable on skis/snowboard, but you don't need to know how to jump well or do tricks. Before each session, you can warm up on the trampoline for 30 minutes.</p>
+                    <p>
+                        <strong class="lang-fr">Apporter :</strong>
+                        <strong class="lang-en">Bring:</strong>
+                    </p>
                     <ul>
-                        <li>Vieux skis (ou location sur place pour CHF 10).</li>
-                        <li>Vêtements couvrants (mais légers).</li>
+                        <li class="lang-fr">Vieux skis (ou location sur place pour CHF 10).</li>
+                        <li class="lang-en">Old skis (or rent them on-site for an additional CHF 10).</li>
+                        <li class="lang-fr">Vêtements couvrants (mais légers).</li>
+                        <li class="lang-en">Clothes that cover your skin (but are lightweight).</li>
                     </ul>
                 </div>
             </details>
@@ -453,36 +762,58 @@
         </section>
 
         <section id="plan">
-            <h2>Plan de Leysin</h2>
+            <h2 class="lang-fr">Plan de Leysin</h2>
+            <h2 class="lang-en">Map of Leysin</h2>
             <img src="PlanLeysin.jpg" alt="Plan de Leysin montrant les différents lieux d'activités">
         </section>
 
         <section id="devinettes">
-            <h2>Devinettes</h2>
-            <p>Pour faciliter la cohésion de ce séjour au délicieux parfum régressif d’une colonie de vacances, il est important que vous fassiez mieux connaissance… En plus de devoir apporter une photographie de vous à l’âge de moins de 15 ans, nous vous proposons de deviner qui sont le / la / les convive.s qui ont…</p>
+            <h2 class="lang-fr">Devinettes</h2>
+            <h2 class="lang-en">Riddles</h2>
+            <p class="lang-fr">Pour faciliter la cohésion de ce séjour au délicieux parfum régressif d’une colonie de vacances, il est important que vous fassiez mieux connaissance… En plus de devoir apporter une photographie de vous à l’âge de moins de 15 ans, nous vous proposons de deviner qui sont le / la / les convive.s qui ont…</p>
+            <p class="lang-en">To foster team spirit during this delightfully nostalgic holiday-camp-style trip, it's important that you get to know each other better... In addition to bringing a photograph of yourself under the age of 15, we invite you to guess which guest(s)...</p>
             <ul class="devinettes-list">
-                <li>🥋 une ceinture noire de judo</li>
-                <li>📚 publié un (ou des) livre.s (en vente dans des vraies librairies)</li>
-                <li>🏜️ fait le Rallye des Gazelles dans le désert</li>
-                <li>🎬 monté le tapis rouge à Cannes</li>
-                <li>🐂 raté une carrière de torrero</li>
-                <li>🐒 fait face à des babouins en colère</li>
-                <li>🎪 été bénévole au Paléo</li>
-                <li>🚲 traversé le Pole Nord en vélo</li>
-                <li>✈️ est allé en Thaïlande juste pour un weekend depuis la Suisse</li>
-                <li>🎭 fait un spectacle de comédie musicale</li>
-                <li>🕵️ déjà enquêté sur un meurtre (mais en vrai, pas sur internet)</li>
-                <li>⛷️ fait un marathon en ski de fond alors qu’il.elle n’en avait jamais pratiqué</li>
-                <li>🚗 conduit 1000km d’une traite sous perfusion de RedBull et jerky</li>
-                <li>💊 servi de mule à des dealers</li>
-                <li>📸 une tendance à flasher en soirée</li>
-                <li>🤫 (le reste à venir)</li>
+                <li>🥋 <span class="lang-fr">une ceinture noire de judo</span><span class="lang-en">has a black belt in judo</span></li>
+                <li>📚 <span class="lang-fr">publié un (ou des) livre.s (en vente dans des vraies librairies)</span><span class="lang-en">has published a book (or books) sold in real bookstores</span></li>
+                <li>🏜️ <span class="lang-fr">fait le Rallye des Gazelles dans le désert</span><span class="lang-en">has competed in the Gazelles Rally in the desert</span></li>
+                <li>🎬 <span class="lang-fr">monté le tapis rouge à Cannes</span><span class="lang-en">has walked the red carpet at Cannes</span></li>
+                <li>🐂 <span class="lang-fr">raté une carrière de torrero</span><span class="lang-en">missed out on a career as a bullfighter</span></li>
+                <li>🐒 <span class="lang-fr">fait face à des babouins en colère</span><span class="lang-en">has faced down angry baboons</span></li>
+                <li>🎪 <span class="lang-fr">été bénévole au Paléo</span><span class="lang-en">has volunteered at the Paléo Festival</span></li>
+                <li>🚲 <span class="lang-fr">traversé le Pole Nord en vélo</span><span class="lang-en">has cycled across the North Pole</span></li>
+                <li>✈️ <span class="lang-fr">est allé en Thaïlande juste pour un weekend depuis la Suisse</span><span class="lang-en">flew to Thailand from Switzerland just for a weekend</span></li>
+                <li>🎭 <span class="lang-fr">fait un spectacle de comédie musicale</span><span class="lang-en">has performed in a musical</span></li>
+                <li>🕵️ <span class="lang-fr">déjà enquêté sur un meurtre (mais en vrai, pas sur internet)</span><span class="lang-en">has investigated a real murder (not on the internet)</span></li>
+                <li>⛷️ <span class="lang-fr">fait un marathon en ski de fond alors qu’il.elle n’en avait jamais pratiqué</span><span class="lang-en">completed a cross-country ski marathon without ever having practiced</span></li>
+                <li>🚗 <span class="lang-fr">conduit 1000km d’une traite sous perfusion de RedBull et jerky</span><span class="lang-en">drove 1000km in one go, fueled by RedBull and jerky</span></li>
+                <li>💊 <span class="lang-fr">servi de mule à des dealers</span><span class="lang-en">has been a drug mule</span></li>
+                <li>📸 <span class="lang-fr">une tendance à flasher en soirée</span><span class="lang-en">has a tendency to flash people at parties</span></li>
+                <li>🤫 <span class="lang-fr">(le reste à venir)</span><span class="lang-en">(more to come)</span></li>
             </ul>
         </section>
 
     </div>
 
+    <script>
+        function switchLanguage(lang) {
+            // Set the class on the body
+            document.body.className = `show-${lang}`;
+
+            // Update active state on buttons
+            document.getElementById('lang-fr-btn').classList.toggle('active', lang === 'fr');
+            document.getElementById('lang-en-btn').classList.toggle('active', lang === 'en');
+            
+            // Set the lang attribute on the html element
+            document.documentElement.lang = lang;
+        }
+
+        // Set the initial language based on the body class
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialLang = document.body.classList.contains('show-en') ? 'en' : 'fr';
+            switchLanguage(initialLang);
+        });
+    </script>
+
 </body>
 </html>
-
 
