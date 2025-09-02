@@ -147,7 +147,7 @@
             margin-bottom: 10px;
         }
         
-        .info-list li, #plan img, .devinettes-list li {
+        .info-list li, #plan img, .devinettes-list li, #sondages iframe {
             background: none;
         }
 
@@ -200,6 +200,13 @@
             max-width: 100%;
             border-radius: 15px;
         }
+        
+        #sondages iframe {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            border: 2px solid var(--sky-blue);
+        }
 
         /* Responsive Design for Mobile */
         @media (max-width: 768px) {
@@ -239,12 +246,8 @@
             }
 
             /* Adjust summary font sizes for better readability on mobile */
-            #activites summary {
+            #activites summary, #agenda summary {
                 font-size: 1.3rem;
-            }
-
-            #agenda summary {
-                font-size: 1.5rem;
             }
             
             .info-label {
@@ -281,7 +284,7 @@
                     <a href="https://maps.app.goo.gl/JacDcaJ1FPJhxSV68" target="_blank">Route des Chamois 2, 1854, Leysin</a><br>
                     vous serez en chambres quadruples, lits simples, avec SdB
                 </li>
-                <li><span class="info-label">ACCÈS:</span> par <strong>Train</strong>: 5min à pied de la Gare Leysin-Feydey qui est à 26min d’Aigle, qui est à 1h15 de Genève ; ou par <strong>Voiture</strong>: 50min depuis Lausanne et 1h15 depuis Genève aéroport (attention il y a peu de places de parking disponibles)</li>
+                <li><span class="info-label">ACCÈS:</span> par <strong>Train</strong>: la gare de Leysin-Feydey est à 5min à pieds du centre. Pour y arriver, il faut prendre un train à Aigle (25min), dont la gare est elle même accessible depuis Lausanne ou Genève en train direct. <br>par <strong>Voiture</strong>: 50min depuis Lausanne et 1h15 depuis Genève aéroport (attention il y a peu de places de parking disponibles)<br>Pour plus d'infos et les itinéraires: <a href="https://www.lescabris.ch/acces-aux-cabris" target="_blank">https://www.lescabris.ch/acces-aux-cabris</a></li>
                 <li><span class="info-label">LIENS UTILES:</span>
                     <ul>
                         <li><a href="https://www.lescabris.ch/" target="_blank">Le centre les Cabris</a></li>
@@ -295,7 +298,7 @@
 
         <section id="trousseau">
             <h2>Tenues exigées et trousseau</h2>
-            <p>“Les Cabris” est un centre de camps de vacances scolaires. 4 lits simples par chambre (110 lits pour 70-80 pers attendues).</p>
+            <p>“Les Cabris” est un centre de camps de vacances scolaires. SVP apportez (par personne):</p>
             <ul class="emoji-list">
                 <li>🧼 Serviette de douche + savon etc.</li>
                 <li>🪥 Brosse à dents + dentifrice (ou un masque)</li>
@@ -476,8 +479,10 @@
                 <li>🤫 (le reste à venir)</li>
             </ul>
         </section>
+
     </div>
 
 </body>
 </html>
+
 
