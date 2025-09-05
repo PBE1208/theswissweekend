@@ -208,6 +208,25 @@
         a:hover {
             color: var(--hot-pink);
         }
+        
+        details > summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .agenda-day > summary {
+            font-size: 1.6rem;
+            color: var(--blue);
+            background-color: #eaf2ff;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        #activites > details > summary {
+             font-size: 1.5rem;
+             color: var(--hot-pink);
+        }
 
         .agenda-day ul {
             padding-left: 20px;
@@ -408,50 +427,40 @@
         <section id="trousseau">
             <h2 class="lang-fr">Tenues exigées et trousseau</h2>
             <h2 class="lang-en">What to Bring</h2>
-            <p class="lang-fr">“Les Cabris” est un centre de camps de vacances scolaires. SVP apportez (par personne):</p>
-            <p class="lang-en">“Les Cabris” is a school holiday camp. Please bring (per person):</p>
-            <ul class="emoji-list">
-                <li>🧼 
-                    <span class="lang-fr">Serviette de douche + savon etc.</span>
-                    <span class="lang-en">Shower towel + soap, etc.</span>
-                </li>
-                <li>🪥 
-                    <span class="lang-fr">Brosse à dents + dentifrice (ou un masque)</span>
-                    <span class="lang-en">Toothbrush + toothpaste (or a mask)</span>
-                </li>
-                <li>👟 
-                    <span class="lang-fr">Tenue de «jour» plutôt sportive</span>
-                    <span class="lang-en">"Daytime" outfit (sporty)</span>
-                </li>
-                <li>✨ 
-                    <span class="lang-fr">Tenue du «soir» plutôt incroyable</span>
-                    <span class="lang-en">"Evening" outfit (fabulous)</span>
-                </li>
-                <li>😴 
-                    <span class="lang-fr">Tenue de «nuit» plutôt pyjama</span>
-                    <span class="lang-en">"Nighttime" outfit (pajamas)</span>
-                </li>
-                <li>👶 
-                    <span class="lang-fr">Une photo de vous, âgé.e de moins de 15 ans</span>
-                    <span class="lang-en">A photo of yourself under the age of 15</span>
-                </li>
-                <li>👣 
-                    <span class="lang-fr">Chaussons d’intérieur (oui… les chaussures sont interdites à l’intérieur pour raisons d’hygiène)</span>
-                    <span class="lang-en">Indoor slippers (yes... shoes are forbidden inside for hygiene reasons)</span>
-                </li>
-                <li>🛌 
-                    <strong class="lang-fr">Literie:</strong>
-                    <strong class="lang-en">Bedding:</strong>
-                    <span class="lang-fr"> Les draps housse et taies d’oreiller sont fournis. Apportez un sac de couchage léger ou sac à rêves. NB : Pour ceux qui viennent en avion, on vous les fournira sur place.</span>
-                    <span class="lang-en"> Fitted sheets and pillowcases are provided. Please bring a light sleeping bag. Note: For those arriving by plane, we will provide them for you.</span>
-                </li>
-            </ul>
-            <p class="lang-fr">On souhaite vous – et nous ! – offrir cette belle fête ensemble sur tout un weekend. Votre présence est notre cadeau. On comprend que certain.e.s insisteront pour contribuer quand même à la fête: on fera une cagnotte.</p>
-            <p class="lang-en">We want to offer you – and us! – this wonderful celebration together for a whole weekend. Your presence is our gift. We understand that some of you will insist on contributing anyway: we will set up a collection pot.</p>
-            <p class="lang-fr">De toutes les façons, Baptiste ne peut pas être plus comblé qu’il ne l’est déjà grâce à sa femme.</p>
-            <p class="lang-en">In any case, Baptiste couldn't be happier than he already is, thanks to his wife.</p>
-            <p>Cependant, les activités ne sont pas dans le package 😉</p>
-            <p class="lang-en">However, activities are not included in the package 😉</p>
+            <div class="lang-fr">
+                <p>“Les Cabris” est un centre de camps de vacances scolaires. SVP apportez (par personne):</p>
+                <ul class="emoji-list">
+                    <li>🧼 Serviette de douche + savon etc.</li>
+                    <li>🪥 Brosse à dents + dentifrice (ou un masque)</li>
+                    <li>👟 Tenue de «jour» plutôt sportive</li>
+                    <li>✨ Tenue du «soir» plutôt incroyable</li>
+                    <li>😴 Tenue de «nuit» plutôt pyjama</li>
+                    <li>👶 Une photo de vous, âgé.e de moins de 15 ans</li>
+                    <li>👣 Chaussons d’intérieur (oui… les chaussures sont interdites à l’intérieur pour raisons d’hygiène)</li>
+                    <li>🛌 <strong>Literie:</strong> Les draps housse et taies d’oreiller sont fournis par le centre. Apportez un sac de couchage léger ou sac à rêves, ou une couette légère. NB : On les fournira pour les convives qui viennent en avion.</li>
+                </ul>
+                <p>Baptiste est en charge du plan des chambres (…) mais ce sera à titre indicatif, vous aurez le droit de changer.</p>
+                <p>On souhaite vous offrir ce weekend jubilant pour fêter nos 976 ans de mariage (en années ressenties). Votre présence est notre cadeau. On comprend que certain.e.s insisteront pour contribuer quand même à la fête: on pensera peut être à faire une cagnotte.</p>
+                <p>De toutes les façons, Baptiste ne peut pas être plus comblé qu’il ne l’est déjà grâce à sa femme.</p>
+                <p>Cependant, les activités ne sont pas dans le package et le déjeuner de vendredi non plus ❤️ 😉 ❤️</p>
+            </div>
+            <div class="lang-en">
+                <p>“Les Cabris” is a school holiday camp. Please bring (per person):</p>
+                <ul class="emoji-list">
+                    <li>🧼 Shower towel + soap, etc.</li>
+                    <li>🪥 Toothbrush + toothpaste (or a mask)</li>
+                    <li>👟 "Daytime" outfit (sporty)</li>
+                    <li>✨ "Evening" outfit (fabulous)</li>
+                    <li>😴 "Nighttime" outfit (pajamas)</li>
+                    <li>👶 A photo of yourself under the age of 15</li>
+                    <li>👣 Indoor slippers (yes... shoes are forbidden inside for hygiene reasons)</li>
+                    <li>🛌 <strong>Bedding:</strong> Fitted sheets and pillowcases are provided by the center. Please bring a light sleeping bag or a duvet. Note: We will provide them for guests arriving by plane.</li>
+                </ul>
+                <p>Baptiste is in charge of the room plan (...) but it will be indicative, you will have the right to change.</p>
+                <p>We want to offer you this jubilant weekend to celebrate our 976 years of marriage (in perceived years). Your presence is our gift. We understand that some will insist on contributing to the party anyway: we might consider setting up a collection pot.</p>
+                <p>In any case, Baptiste couldn't be happier than he already is, thanks to his wife.</p>
+                <p>However, the activities are not in the package, and neither is Friday's lunch ❤️ 😉 ❤️</p>
+            </div>
         </section>
 
         <section id="agenda">
@@ -468,10 +477,10 @@
                 </summary>
                 <div class="details-content">
                     <ul>
-                        <li class="lang-fr">Il y aura des arrivées tout au long de la journée (dès 11h le vendredi)</li>
-                        <li class="lang-en">Arrivals will take place throughout the day (starting from 11 am on Friday)</li>
-                        <li class="lang-fr"><strong>Déjeuner:</strong> restaurant La Prafandaz (à confirmer / à réserver encore).</li>
-                        <li class="lang-en"><strong>Lunch:</strong> La Prafandaz restaurant (to be confirmed / to be booked).</li>
+                        <li class="lang-fr">Il y aura des arrivées tout au long de la journée (dès 11h30 le vendredi)</li>
+                        <li class="lang-en">Arrivals will take place throughout the day (from 11:30 am on Friday)</li>
+                        <li class="lang-fr"><strong>Déjeuner:</strong> restaurant <a href="https://www.alpesvaudoises.ch/fr/P305/restaurant-prafandaz" target="_blank">La Prafandaz</a> réservé à 13h pour 20 personnes</li>
+                        <li class="lang-en"><strong>Lunch:</strong> <a href="https://www.alpesvaudoises.ch/fr/P305/restaurant-prafandaz" target="_blank">La Prafandaz</a> restaurant booked at 1 pm for 20 people</li>
                         <li class="lang-fr"><strong>Après-midi:</strong> temps libre: sieste, babyfoot, balades, etc. (voir la section Activités)</li>
                         <li class="lang-en"><strong>Afternoon:</strong> free time: nap, foosball, walks, etc. (see Activities section)</li>
                         <li class="lang-fr"><strong>Soir:</strong> Apéro et dîner sur place aux Cabris (dès 19h30)</li>
@@ -627,34 +636,37 @@
             </details>
 
             <details>
-                <summary>Activity: VIA FERRATA</summary>
+                <summary>
+                    <span class="lang-fr">Activité VIA FERRATA</span>
+                    <span class="lang-en">Activity: VIA FERRATA</span>
+                </summary>
                 <div class="details-content">
-                    <p>
-                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span>
-                        <span class="lang-fr"> oui, à faire soi-même pour l’équipement chez </span>
-                        <span class="lang-en"> yes, book the equipment yourself at </span>
-                        <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a>. 
-                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span>
-                        <span class="lang-fr"> équipement ViaFerrata seul : CHF 27. </span>
-                        <span class="lang-en"> Via Ferrata equipment only: CHF 27. </span>
-                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> 3.5h 
-                        <span class="lang-fr">(montée télésiège + 45min marche approche + 1h20 de via + descente)</span>
-                        <span class="lang-en">(cable car ride + 45min approach walk + 1h20 on the route + descent)</span>
-                    </p>
-                    <p class="lang-fr">La vue depuis le sommet est dingue. Pas de grosses difficultés technique, sauf la vision du vide. Plus d’infos et topo du parcours ici : <a href="https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/" target="_blank">https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/</a></p>
-                    <p class="lang-en">The view from the top is insane. No major technical difficulties, apart from the exposure to heights. More info and route description here: <a href="https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/" target="_blank">https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/</a></p>
-                    <p><em>
-                        <span class="lang-fr">Attention : cette activité n’est adaptée pour ceux qui ont le vertige !</span>
-                        <span class="lang-en">Warning: this activity is not suitable for those with a fear of heights!</span>
-                    </em></p>
-                    <p class="lang-fr">Cette activité peut être combinée avec une descente en VTT ou Dirt Scoot. Réservez votre matériel par tél: 024 494 17 44 ou par email: info@heftisports.ch.</p>
-                    <p class="lang-en">This activity can be combined with a mountain bike or Dirt Scoot descent. Book your equipment by phone: 024 494 17 44 or by email: info@heftisports.ch.</p>
-                    <ul>
-                        <li class="lang-fr"><strong>Forfait Via Ferrata CHF 47.-</strong> inclut le matériel, casque, longe, baudrier ainsi qu’un aller-simple en télésiège.</li>
-                        <li class="lang-en"><strong>Via Ferrata Package CHF 47.-</strong> includes equipment (helmet, lanyard, harness), and a one-way cable car ticket.</li>
-                        <li class="lang-fr"><strong>Forfait Via Ferrata et VTT CHF 62.-</strong> inclut le set complet pour la Via Ferrata + une montée en télésiège et un VTT standard.</li>
-                        <li class="lang-en"><strong>Via Ferrata and MTB Package CHF 62.-</strong> includes the complete Via Ferrata set + a cable car ride and a standard mountain bike.</li>
-                    </ul>
+                    <div class="lang-fr">
+                        <p><strong>Réservation:</strong> oui. <strong>Prix :</strong> selon forfait. <strong>Durée :</strong> 3.5h (montée télésiège + 45min marche approche + 1h20 de via + descente)</p>
+                        <p>La vue depuis le sommet est dingue. Pas de grosses difficultés technique, sauf la vision du vide. Plus d’infos et topo du parcours ici : <a href="https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/" target="_blank">https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/</a></p>
+                        <p><em>Attention : cette activité n’est adaptée pour ceux qui ont le vertige !</em></p>
+                        <p>Cette activité peut être combinée avec : descente en VTT ou Dirt Scoot, ou même balade.</p>
+                        <p>Vous devez réserver vous-même votre équipement chez <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a> (même si j’ai téléphoné pour pré-réserver etc.) Indiquez que vous faites partie du groupe The Swiss Weekend avec Pernette (10% de réduction).</p>
+                        <p>Le <a href="https://www.alpesvaudoises.ch/fr/P307/refuge-de-mayen" target="_blank">refuge de Mayen</a> est un bon endroit pour boire un verre avant et/ou retrouver ceux qui feront la descente en VTT ou Dirt Scoot, ou se baladent dans le coin.</p>
+                        <ul>
+                           <li><strong>Equipement Via Ferrata seul: CHF 27.-</strong> équipement Via Ferrata (baudrier, casque…)</li>
+                           <li><strong>Forfait Via Ferrata + montée :</strong> équipement Via Ferrata + montée télésiège (aller simple)</li>
+                           <li><strong>Forfait Via Ferrata et VTT CHF 62.-</strong> équipement Via Ferrata + VTT + montée télésiège</li>
+                        </ul>
+                    </div>
+                    <div class="lang-en">
+                        <p><strong>Booking:</strong> yes. <strong>Price:</strong> depends on package. <strong>Duration:</strong> 3.5h (cable car ride + 45min approach walk + 1h20 on the route + descent)</p>
+                        <p>The view from the top is insane. No major technical difficulties, apart from the exposure to heights. More info and route description here: <a href="https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/" target="_blank">https://www.passionviaferrata.fr/via-ferrata-la-tour-dai/</a></p>
+                        <p><em>Warning: this activity is not suitable for those with a fear of heights!</em></p>
+                        <p>This activity can be combined with: MTB or Dirt Scoot descent, or even a hike.</p>
+                        <p>You must book your own equipment at <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a> (even though I called to pre-book, etc.). Mention that you are part of "The Swiss Weekend with Pernette" group for a 10% discount.</p>
+                        <p>The <a href="https://www.alpesvaudoises.ch/fr/P307/refuge-de-mayen" target="_blank">Mayen refuge</a> is a good place to have a drink before and/or meet up with those doing the MTB or Dirt Scoot descent, or hiking in the area.</p>
+                        <ul>
+                           <li><strong>Via Ferrata Equipment only: CHF 27.-</strong> Via Ferrata equipment (harness, helmet…)</li>
+                           <li><strong>Via Ferrata Package + Ascent:</strong> Via Ferrata equipment + one-way cable car ticket</li>
+                           <li><strong>Via Ferrata and MTB Package CHF 62.-</strong> Via Ferrata equipment + MTB + cable car ride</li>
+                        </ul>
+                    </div>
                 </div>
             </details>
 
@@ -664,24 +676,28 @@
                     <span class="lang-en">Activity: MTB or DIRT SCOOT DESCENT</span>
                 </summary>
                 <div class="details-content">
-                    <p>
-                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span>
-                        <span class="lang-fr"> oui, à faire soi-même pour l’équipement chez </span>
-                        <span class="lang-en"> yes, book the equipment yourself at </span>
-                        <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a>. 
-                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span>
-                        <span class="lang-fr"> selon forfait. </span>
-                        <span class="lang-en"> depends on package. </span>
-                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> 3h.
-                    </p>
-                    <p class="lang-fr">Le Dirt Scoot est une trottinette géante. De bonnes chaussures sont conseillées. Réservez par tél: 024 494 17 44 ou par email: info@heftisports.ch.</p>
-                    <p class="lang-en">The Dirt Scoot is a giant scooter. Good shoes are recommended. Book by phone: 024 494 17 44 or by email: info@heftisports.ch.</p>
-                     <ul>
-                        <li class="lang-fr"><strong>Forfait Scoot: CHF 37.-</strong> inclut la trottinette, casque, et un aller simple en télésiège.</li>
-                        <li class="lang-en"><strong>Scoot Package: CHF 37.-</strong> includes the scooter, helmet, and a one-way cable car ticket.</li>
-                        <li class="lang-fr"><strong>Forfait Via Ferrata et VTT CHF 62.-</strong> inclut le set complet pour la Via Ferrata avec un VTT standard + une montée en télésiège.</li>
-                        <li class="lang-en"><strong>Via Ferrata and MTB Package CHF 62.-</strong> includes the complete Via Ferrata set with a standard MTB + a one-way cable car ticket.</li>
-                    </ul>
+                    <div class="lang-fr">
+                        <p><strong>Réservation:</strong> oui. <strong>Prix :</strong> selon forfait. <strong>Durée:</strong> 2h.</p>
+                        <p>Le Dirt Scoot est une trottinette géante et est plus adaptée pour les debutants. La piste de VTT est difficile. De bonnes chaussures sont conseillées.</p>
+                        <p>Cette activité peut être combinée avec: Via Ferrata ou même balade.</p>
+                        <p>Vous devez réserver vous-même votre équipement chez <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a> (même si j’ai téléphoné pour pré-réserver etc.) Indiquez que vous faites partie du groupe The Swiss Weekend avec Pernette (10% de réduction).</p>
+                        <p>Le <a href="https://www.alpesvaudoises.ch/fr/P307/refuge-de-mayen" target="_blank">refuge de Mayen</a> est un bon endroit pour boire un verre avant et/ou retrouver ceux qui descendent de la via ferrata ou se baladent dans le coin.</p>
+                        <ul>
+                            <li><strong>Forfait Scoot: CHF 37.-</strong> inclut la trottinette, casque, et un aller simple en télésiège.</li>
+                            <li><strong>Forfait Via Ferrata et VTT CHF 62.-</strong> inclut le set complet pour la Via Ferrata avec un VTT standard + une montée en télésiège.</li>
+                        </ul>
+                    </div>
+                    <div class="lang-en">
+                        <p><strong>Booking:</strong> yes. <strong>Price:</strong> depends on package. <strong>Duration:</strong> 2h.</p>
+                        <p>The Dirt Scoot is a giant scooter and is more suitable for beginners. The MTB track is difficult. Good shoes are recommended.</p>
+                        <p>This activity can be combined with: Via Ferrata or even a hike.</p>
+                        <p>You must book your own equipment at <a href="http://www.heftisports.ch/" target="_blank">Hefti Sport</a> (even though I called to pre-book, etc.). Mention that you are part of "The Swiss Weekend with Pernette" group for a 10% discount.</p>
+                        <p>The <a href="https://www.alpesvaudoises.ch/fr/P307/refuge-de-mayen" target="_blank">Mayen refuge</a> is a good place to have a drink before and/or meet up with those coming down from the via ferrata or hiking in the area.</p>
+                        <ul>
+                            <li><strong>Scoot Package: CHF 37.-</strong> includes the scooter, helmet, and a one-way cable car ticket.</li>
+                            <li><strong>Via Ferrata and MTB Package CHF 62.-</strong> includes the complete Via Ferrata set with a standard MTB + a one-way cable car ticket.</li>
+                        </ul>
+                    </div>
                 </div>
             </details>
 
@@ -691,20 +707,22 @@
                     <span class="lang-en">Activity: GOAT FARM</span>
                 </summary>
                 <div class="details-content">
-                    <p>
-                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span>
-                        <span class="lang-fr"> groupée (répondre au sondage dans le </span>
-                        <span class="lang-en"> group (please answer the poll in the </span>
-                        <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">
-                            <span class="lang-fr">groupe whatsapp</span><span class="lang-en">WhatsApp group</span>
-                        </a>). 
-                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span> libre / free. 
-                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span>
-                        <span class="lang-fr"> moins de 1h.</span>
-                        <span class="lang-en"> less than 1 hour.</span>
-                    </p>
-                    <p class="lang-fr">Chaque chèvre a un petit nom et quémandera vos caresses. Il y a donc de fortes chances que vous sentiez le bouc. Pensez à vous laver les mains après. Plus d’infos <a href="https://www.alpesvaudoises.ch/fr/P16369/leysin/la-chevrerie" target="_blank">ici</a>.</p>
-                    <p class="lang-en">Each goat has a name and will beg for pets. There's a high chance you'll smell like a goat afterward. Remember to wash your hands. More info <a href="https://www.alpesvaudoises.ch/fr/P16369/leysin/la-chevrerie" target="_blank">here</a>.</p>
+                    <div class="lang-fr">
+                        <p><strong>Réservation:</strong> non. <strong>Prix :</strong> contribution libre. <strong>Durée :</strong> moins de 1h.</p>
+                        <p>Chaque chèvre a un petit nom et quémandera vos caresses. Il y a donc de fortes chances que vous sentiez le bouc. Pensez à vous laver les mains après.</p>
+                        <p>La visite guidée ne sera pas disponible samedi 13 sept., en revanche, vous pouvez venir visiter les animaux quand vous voulez. SVP appeler ou envoyer un SMS à Mme Nataskha Perreten au +4179 3433078 avant d’y aller.</p>
+                        <p>Il faut environ 30min à pieds depuis les Cabris vers la chèvrerie (mais il y a aussi des bus) <a href="https://www.google.com/maps/dir/Les+Cabris,+Route+des+Chamois,+Leysin/La+Ch%C3%A8vrerie,+Route+de+la+Feydey,+Leysin" target="_blank">Cliquez ici pour l’itinéraire</a>.</p>
+                        <p><a href="https://www.alpesvaudoises.ch/fr/P16369/leysin/la-chevrerie" target="_blank">Page web de la chèvrerie ici</a>.</p>
+                        <p>Comme la visite n’est pas très longue vous pouvez combiner avec une partie de pétanque sur glace à 14h (centre sportif est à 15min à pieds), ou une balade – voir la section « Activité BALADE »</p>
+                    </div>
+                    <div class="lang-en">
+                        <p><strong>Booking:</strong> no. <strong>Price:</strong> free contribution. <strong>Duration:</strong> less than 1 hour.</p>
+                        <p>Each goat has a name and will beg for pets. There's a high chance you'll smell like a goat afterward. Remember to wash your hands.</p>
+                        <p>The guided tour will not be available on Saturday, Sept 13th; however, you can visit the animals whenever you like. Please call or text Mrs. Nataskha Perreten at +4179 3433078 before you go.</p>
+                        <p>It's about a 30-minute walk from Les Cabris to the goat farm (but there are also buses). <a href="https://www.google.com/maps/dir/Les+Cabris,+Route+des+Chamois,+Leysin/La+Ch%C3%A8vrerie,+Route+de+la+Feydey,+Leysin" target="_blank">Click here for the itinerary</a>.</p>
+                        <p><a href="https://www.alpesvaudoises.ch/fr/P16369/leysin/la-chevrerie" target="_blank">Goat farm webpage here</a>.</p>
+                        <p>As the visit is not very long, you can combine it with a game of ice pétanque at 2 pm (the sports center is a 15-minute walk away), or a hike – see the "HIKING" section.</p>
+                    </div>
                 </div>
             </details>
 
@@ -714,13 +732,20 @@
                     <span class="lang-en">Activity: EISSTOCKSCHIESSEN (ice stock sport)</span>
                 </summary>
                 <div class="details-content">
-                    <p>
-                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span> groupée / group. 
-                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span> CHF 5. 
-                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> 2h.
-                    </p>
-                    <p class="lang-fr">L'Eisstockschiessen est une mix entre le curling et la pétanque... Entre 4 et 16 joueurs par partie. Chaussures propres obligatoires. On réservera une section de la patinoire donc vous pourrez aussi faire du patinage if you préférez.</p>
-                    <p class="lang-en">Eisstockschiessen is a mix between curling and pétanque... for 4 to 16 players per game. Clean shoes are mandatory. We will reserve a section of the ice rink, so you can also go ice skating if you prefer.</p>
+                    <div class="lang-fr">
+                        <p><strong>Réservation:</strong> groupée (répondre au sondage dans le <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">groupe whatsapp</a>). <strong>Prix :</strong> CHF 8. <strong>Durée :</strong> 1h.</p>
+                        <p>L'Eisstockschiessen est un mix entre le curling et la pétanque avec 4 à 8 joueurs par partie / par piste. Chaque partie dure un peu moins de 1h. On a réservé 2 pistes pour 2h (de 13h30 à 15h30) (on a pris de la marge au cas ou la météo ne soit pas favorable…).</p>
+                        <p><em>Attention</em> des chaussures propres sont obligatoires…</p>
+                        <p>Plus d’infos <a href="https://www.alpesvaudoises.ch/fr/P16367/leysin/petanque-sur-glace-eisstockschiessen" target="_blank">ici</a>.</p>
+                        <p>Comme une partie ne dure que 1h vous pouvez combiner avec une visite de la chèvrerie (15min à pieds), ou une balade – voir la section « Activité BALADE », ou aller voir ceux qui font le Big Air Bag juste à coté. Vous pouvez aussi juste louer des patins et profiter de la glace.</p>
+                    </div>
+                    <div class="lang-en">
+                        <p><strong>Booking:</strong> group (please answer the poll in the <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">WhatsApp group</a>). <strong>Price:</strong> CHF 8. <strong>Duration:</strong> 1h.</p>
+                        <p>Eisstockschiessen is a mix between curling and pétanque with 4 to 8 players per game / per lane. Each game lasts a little less than 1 hour. We have booked 2 lanes for 2 hours (from 1:30 pm to 3:30 pm) (we added some buffer time in case the weather is not favorable...).</p>
+                        <p><em>Attention</em> clean shoes are mandatory…</p>
+                        <p>More info <a href="https://www.alpesvaudoises.ch/fr/P16367/leysin/petanque-sur-glace-eisstockschiessen" target="_blank">here</a>.</p>
+                        <p>As a game only lasts 1 hour, you can combine it with a visit to the goat farm (15-min walk), a hike – see the "HIKING" section, or go watch those doing the Big Air Bag right next door. You can also just rent skates and enjoy the ice.</p>
+                    </div>
                 </div>
             </details>
             
@@ -730,32 +755,30 @@
                     <span class="lang-en">Activity: BIG AIR BAG (one of a kind)</span>
                 </summary>
                 <div class="details-content">
-                    <p>
-                        <strong class="lang-fr">Réservation:</strong><span class="lang-en">Booking:</span>
-                        <span class="lang-fr"> groupée (répondre au sondage dans le </span>
-                        <span class="lang-en"> group (please answer the poll in the </span>
-                        <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">
-                            <span class="lang-fr">groupe whatsapp</span><span class="lang-en">WhatsApp group</span>
-                        </a>). 
-                        <strong class="lang-fr">Prix :</strong><span class="lang-en">Price:</span> CHF 45. 
-                        <strong class="lang-fr">Durée :</strong><span class="lang-en">Duration:</span> 2h.
-                    </p>
-                    <p>
-                        <span class="lang-fr">Plus d'infos: </span><span class="lang-en">More info: </span>
-                        <a href="https://lebag-leysin.ch/fr/" target="_blank">https://lebag-leysin.ch/fr/</a>
-                    </p>
-                    <p class="lang-fr">Deux tremplins (22m et 16m) et un airbag géant. Il faut être à l’aise en ski/snow mais ce n'est pas nécessaire de savoir bien sauter ni de faire des figures. Avant chaque session, vous pouvez faire 30 minutes d’échauffement sur le trampoline.</p>
-                    <p class="lang-en">Two ramps (22m and 16m) and a giant airbag. You need to be comfortable on skis/snowboard, but no need to be an expert jumper or do any tricks. Before each session, you can warm up on the trampoline for 30 minutes.</p>
-                    <p>
-                        <strong class="lang-fr">Apporter :</strong>
-                        <strong class="lang-en">Bring:</strong>
-                    </p>
-                    <ul>
-                        <li class="lang-fr">Vieux skis (ou location sur place pour CHF 10).</li>
-                        <li class="lang-en">Old skis (or rent them on-site for an additional CHF 10).</li>
-                        <li class="lang-fr">Vêtements couvrants (mais légers).</li>
-                        <li class="lang-en">Clothes that cover your skin (but are lightweight).</li>
-                    </ul>
+                     <div class="lang-fr">
+                        <p><strong>Réservation:</strong> groupée (répondre au sondage dans le <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">groupe whatsapp</a>). <strong>Prix :</strong> CHF 45. <strong>Durée :</strong> 2h.</p>
+                        <p>Plus d'infos: <a href="https://lebag-leysin.ch/fr/" target="_blank">https://lebag-leysin.ch/fr/</a></p>
+                        <p>Deux tremplins (22m et 16m) et un airbag géant. Il faut être bon skieur mais ce n'est pas nécessaire de savoir bien sauter ni de faire des figures. Avant chaque session, vous pouvez faire 30 minutes d’échauffement sur le trampoline.</p>
+                        <p>La session est réservée de 15h à 17h – et vous devez vous présenter 30min avant (à 14h30 donc…).</p>
+                        <p><strong>Apporter :</strong></p>
+                        <ul>
+                            <li>Vêtements couvrants (mais légers).</li>
+                            <li>Chaussures de ski et des vieux skis (les carres seront limées pour ne pas crever l’air bag). Vous pouvez aussi louer directement au Bag ou chez <a href="http://www.heftisports.ch/" target="_blank">Hefti Sports</a> ; Réservation fortement conseillée.</li>
+                            <li>Casque</li>
+                        </ul>
+                    </div>
+                    <div class="lang-en">
+                        <p><strong>Booking:</strong> group (please answer the poll in the <a href="https://chat.whatsapp.com/KFx09XETtdK2TMpathPSBG?mode=ems_wa_c" target="_blank">WhatsApp group</a>). <strong>Price:</strong> CHF 45. <strong>Duration:</strong> 2h.</p>
+                        <p>More info: <a href="https://lebag-leysin.ch/fr/" target="_blank">https://lebag-leysin.ch/fr/</a></p>
+                        <p>Two ramps (22m and 16m) and a giant airbag. You need to be a good skier, but it is not necessary to know how to jump well or do tricks. Before each session, you can warm up for 30 minutes on the trampoline.</p>
+                        <p>The session is booked from 3 pm to 5 pm – and you must arrive 30 minutes before (at 2:30 pm...).</p>
+                        <p><strong>Bring:</strong></p>
+                        <ul>
+                            <li>Clothes that cover your skin (but are lightweight).</li>
+                            <li>Ski boots and old skis (the edges will be filed down so as not to puncture the air bag). You can also rent directly at The Bag or at <a href="http://www.heftisports.ch/" target="_blank">Hefti Sports</a>; booking is highly recommended.</li>
+                            <li>Helmet</li>
+                        </ul>
+                    </div>
                 </div>
             </details>
 
@@ -816,4 +839,5 @@
 
 </body>
 </html>
+
 
