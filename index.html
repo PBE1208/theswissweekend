@@ -244,7 +244,7 @@
             font-size: 1.2rem;
         }
 
-        #plan img {
+        #plan img, #chambres img {
             max-width: 100%;
             border-radius: 15px;
         }
@@ -254,6 +254,63 @@
             height: 500px;
             border-radius: 15px;
             border: 2px solid var(--sky-blue);
+        }
+
+        /* Image Modal Styles */
+        .zoomable-image {
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .zoomable-image:hover {
+            opacity: 0.7;
+        }
+
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            padding-top: 50px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); 
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        .modal-content {  
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
         }
 
         /* Responsive Design for Mobile */
@@ -302,6 +359,9 @@
                 display: block; /* Stack labels above the text on small screens */
                 margin-bottom: 5px;
             }
+            .modal-content {
+                width: 100%;
+            }
         }
 
     </style>
@@ -344,6 +404,12 @@
                 <a href="#devinettes">
                     <span class="lang-fr">Devinettes</span>
                     <span class="lang-en">Riddles</span>
+                </a>
+            </li>
+            <li>
+                <a href="#chambres">
+                    <span class="lang-fr">Chambres</span>
+                    <span class="lang-en">Rooms</span>
                 </a>
             </li>
             <li class="lang-switcher">
@@ -746,9 +812,9 @@
         <section id="plan">
             <h2 class="lang-fr">Plan de Leysin</h2>
             <h2 class="lang-en">Map of Leysin</h2>
-            <img src="PlanLeysin.jpg" alt="Plan de Leysin montrant les différents lieux d'activités">
+            <img src="PlanLeysin.jpg" alt="Plan de Leysin montrant les différents lieux d'activités" class="zoomable-image">
         </section>
-
+        
         <section id="devinettes">
             <h2 class="lang-fr">Devinettes</h2>
             <h2 class="lang-en">Riddles</h2>
@@ -822,6 +888,25 @@
             </div>
         </section>
 
+        <section id="chambres">
+            <h2 class="lang-fr">Chambres</h2>
+            <h2 class="lang-en">Rooms</h2>
+            <div class="lang-fr">
+                <p>Baptiste vous propose ce plan des chambres à titre indicatif. Il y a 2 lits superposés par chambre et 1 salle de douche + toilettes pour 2 chambres à chaque fois.</p>
+            </div>
+            <div class="lang-en">
+                <p>Baptiste offers this room plan as an indication. There are 2 bunk beds per room and 1 shower room + toilet for every 2 rooms.</p>
+            </div>
+            <img src="https://raw.githubusercontent.com/username/repo/main/PlanChambres.jpg" alt="Plan des chambres" class="zoomable-image">
+        </section>
+
+
+    </div>
+    
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+      <span class="close-modal">&times;</span>
+      <img class="modal-content" id="modalImage">
     </div>
 
     <script>
@@ -841,10 +926,35 @@
         document.addEventListener('DOMContentLoaded', () => {
             const initialLang = document.body.classList.contains('show-en') ? 'en' : 'fr';
             switchLanguage(initialLang);
+
+             // Image Modal Logic
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            var images = document.getElementsByClassName("zoomable-image");
+            
+            for (let i = 0; i < images.length; i++) {
+                images[i].onclick = function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                }
+            }
+
+            var span = document.getElementsByClassName("close-modal")[0];
+
+            if(span) {
+                span.onclick = function() { 
+                    modal.style.display = "none";
+                }
+            }
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         });
     </script>
 
 </body>
 </html>
-
 
